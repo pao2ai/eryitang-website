@@ -11,3 +11,7 @@ node_modules/
 
 # Local dev
 .workbuddy/
+
+# Exported preview screenshots (not part of the site)
+preview-*.png
+*.preview.png

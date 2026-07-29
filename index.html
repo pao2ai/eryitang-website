@@ -1,361 +1,2071 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>尔意堂中医馆 — 西南唯一董氏奇穴非遗传承医馆</title>
-<meta name="description" content="尔意堂是西南唯一董氏奇穴针灸非遗传承医馆，融合治疗、养生与社交的复合性空间。提供针灸、推拿、正骨、艾灸、药浴等一体化中医服务。">
-<link rel="stylesheet" href="css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="尔意堂中医馆品牌官网首页高保真框架原型">
+  <title>尔意堂中医馆｜首页框架原型</title>
+  <style>
+    :root {
+      --paper: #f4efe5;
+      --paper-deep: #e8deca;
+      --paper-light: #fbf8f1;
+      --ink: #211e19;
+      --ink-soft: #5f5a51;
+      --red: #872a24;
+      --red-deep: #63201c;
+      --red-light: #b95f50;
+      --moss: #5b6656;
+      --gold: #ae9365;
+      --line: rgba(74, 61, 44, .18);
+      --shadow: 0 24px 70px rgba(56, 40, 24, .11);
+      --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, SimSun, serif;
+      --sans: "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+      --container: min(1240px, calc(100vw - 80px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: clip;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(174, 147, 101, .08), transparent 30%),
+        linear-gradient(rgba(88, 70, 46, .022) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 100% 6px, auto;
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .utility-bar {
+      position: relative;
+      z-index: 40;
+      min-height: 36px;
+      color: rgba(255,255,255,.82);
+      background: var(--red-deep);
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    .utility-inner {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .utility-meta {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .utility-meta span {
+      white-space: nowrap;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 35;
+      border-bottom: 1px solid transparent;
+      background: rgba(244, 239, 229, .92);
+      backdrop-filter: blur(14px);
+      transition: box-shadow .3s ease, border-color .3s ease, background .3s ease;
+    }
+
+    .site-header.scrolled {
+      border-color: var(--line);
+      background: rgba(250, 247, 239, .96);
+      box-shadow: 0 10px 36px rgba(46, 36, 25, .08);
+    }
+
+    .nav-wrap {
+      height: 88px;
+      display: grid;
+      grid-template-columns: 220px 1fr auto;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      width: fit-content;
+    }
+
+    .brand-seal {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      border: 2px solid var(--red);
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: .12em;
+      writing-mode: vertical-rl;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: .22em;
+    }
+
+    .brand-sub {
+      margin-top: 7px;
+      color: var(--ink-soft);
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(18px, 2vw, 34px);
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 31px 0 28px;
+      color: #38342d;
+      font-size: 14px;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      width: 0;
+      height: 1px;
+      background: var(--red);
+      transform: translateX(-50%);
+      transition: width .25s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--red);
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+      width: 22px;
+    }
+
+    .phone-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--red);
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      white-space: nowrap;
+    }
+
+    .phone-link::before {
+      content: "";
+      width: 25px;
+      height: 1px;
+      background: var(--red);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin: 5px 0;
+      background: var(--ink);
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .image-banner {
+      position: relative;
+      min-height: max(650px, calc(100svh - 124px));
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(28, 30, 25, .64) 0%, rgba(28, 30, 25, .2) 58%, rgba(28, 30, 25, .38) 100%),
+        linear-gradient(135deg, #777c70 0%, #5f675d 48%, #8c8b7b 100%);
+    }
+
+    .image-banner::before {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border: 1px solid rgba(255,255,255,.2);
+      pointer-events: none;
+    }
+
+    .image-banner::after {
+      content: "尔意堂";
+      position: absolute;
+      right: -18px;
+      top: 2%;
+      color: rgba(255,255,255,.06);
+      font-family: var(--serif);
+      font-size: clamp(150px, 20vw, 330px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: .04em;
+      writing-mode: vertical-rl;
+      pointer-events: none;
+    }
+
+    .image-banner-inner {
+      position: relative;
+      z-index: 2;
+      min-height: inherit;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 60px;
+      padding: 0 0 70px;
+    }
+
+    .image-banner-copy {
+      max-width: 650px;
+      text-shadow: 0 3px 24px rgba(0,0,0,.25);
+    }
+
+    .image-banner-copy .eyebrow {
+      color: rgba(255,255,255,.72);
+    }
+
+    .image-banner-copy .eyebrow::before {
+      background: rgba(255,255,255,.7);
+    }
+
+    .image-banner-copy h1 {
+      margin: 22px 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(48px, 6vw, 86px);
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: .12em;
+      white-space: nowrap;
+    }
+
+    .image-banner-copy p {
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+      letter-spacing: .1em;
+    }
+
+    .banner-image-note {
+      min-width: 220px;
+      padding: 22px 24px;
+      border-left: 1px solid rgba(255,255,255,.42);
+      color: rgba(255,255,255,.68);
+      font-size: 11px;
+      line-height: 1.9;
+      letter-spacing: .1em;
+      text-align: right;
+    }
+
+    .banner-image-note strong {
+      display: block;
+      margin-bottom: 4px;
+      color: white;
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .banner-scroll {
+      position: absolute;
+      left: 50%;
+      bottom: 25px;
+      z-index: 3;
+      color: rgba(255,255,255,.62);
+      font-size: 9px;
+      letter-spacing: .25em;
+      transform: translateX(-50%);
+    }
+
+    .banner-scroll::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 28px;
+      margin: 10px auto -24px;
+      background: rgba(255,255,255,.5);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "YI YI TANG";
+      position: absolute;
+      left: -28px;
+      top: 42%;
+      color: rgba(99, 32, 28, .07);
+      font-family: Georgia, serif;
+      font-size: 92px;
+      letter-spacing: .12em;
+      transform: rotate(-90deg);
+      transform-origin: center;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      min-height: 670px;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(520px, 1.1fr);
+      align-items: center;
+      gap: 64px;
+      padding: 68px 0 40px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      padding-left: 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 25px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .22em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .hero h1 {
+      max-width: 620px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(50px, 5.2vw, 76px);
+      font-weight: 600;
+      line-height: 1.28;
+      letter-spacing: .08em;
+    }
+
+    .hero h1 .accent {
+      color: var(--red);
+    }
+
+    .hero-lead {
+      max-width: 570px;
+      margin: 27px 0 0;
+      color: var(--ink-soft);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 2;
+      letter-spacing: .045em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 38px;
+    }
+
+    .btn {
+      min-width: 146px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 0 24px;
+      border: 1px solid var(--red);
+      font-size: 13px;
+      letter-spacing: .13em;
+      transition: color .25s ease, background .25s ease, transform .25s ease;
+    }
+
+    .btn::after {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: currentColor;
+      transition: width .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn:hover::after {
+      width: 28px;
+    }
+
+    .btn-primary {
+      color: #fffaf1;
+      background: var(--red);
+    }
+
+    .btn-outline {
+      color: var(--red);
+      background: transparent;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 540px;
+    }
+
+    .hero-block {
+      position: absolute;
+      inset: 0 0 36px 36px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(25, 31, 25, .12), transparent 35%),
+        linear-gradient(145deg, #b7b29e 0%, #777969 55%, #4b5149 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-block::before {
+      content: "";
+      position: absolute;
+      inset: 8% 8%;
+      border: 1px solid rgba(255,255,255,.28);
+    }
+
+    .hero-block::after {
+      content: "品牌主视觉图片占位";
+      position: absolute;
+      right: 32px;
+      bottom: 28px;
+      color: rgba(255,255,255,.88);
+      font-family: var(--serif);
+      font-size: 13px;
+      letter-spacing: .18em;
+    }
+
+    .hero-red-panel {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 190px;
+      height: 205px;
+      display: flex;
+      align-items: flex-end;
+      padding: 26px;
+      color: #f8efe1;
+      background: var(--red);
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.65;
+      letter-spacing: .12em;
+      box-shadow: 16px 20px 50px rgba(74, 28, 20, .22);
+    }
+
+    .hero-stamp {
+      position: absolute;
+      right: -22px;
+      top: 46px;
+      width: 88px;
+      height: 88px;
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      border: 2px solid var(--red);
+      background: var(--paper);
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: .08em;
+      text-align: center;
+      transform: rotate(5deg);
+    }
+
+    .hero-facts {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      background: rgba(250, 247, 239, .72);
+    }
+
+    .fact {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      padding: 16px 28px;
+      border-right: 1px solid var(--line);
+    }
+
+    .fact:last-child {
+      border-right: 0;
+    }
+
+    .fact-no {
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .fact strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 15px;
+      letter-spacing: .08em;
+    }
+
+    .fact small {
+      display: block;
+      margin-top: 3px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: .06em;
+    }
+
+    .section {
+      position: relative;
+      padding: 120px 0;
+    }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 11px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .section-title {
+      margin: 16px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(34px, 3.3vw, 52px);
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: .08em;
+    }
+
+    .section-desc {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: var(--ink-soft);
+      line-height: 2;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 55px;
+    }
+
+    .section-head .btn {
+      flex: 0 0 auto;
+    }
+
+    .heritage {
+      background: var(--paper-light);
+    }
+
+    .heritage::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 26%;
+      height: 100%;
+      border-left: 1px solid rgba(135, 42, 36, .08);
+      background: repeating-linear-gradient(90deg, rgba(135, 42, 36, .025) 0 1px, transparent 1px 15px);
+    }
+
+    .heritage-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      align-items: center;
+      gap: 100px;
+    }
+
+    .heritage-visual {
+      position: relative;
+      min-height: 590px;
+    }
+
+    .heritage-main {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 82%;
+      height: 500px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.12), transparent 40%),
+        #817b6b;
+      box-shadow: var(--shadow);
+    }
+
+    .heritage-main::after,
+    .doctor-photo::after,
+    .news-image::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 24px;
+      bottom: 20px;
+      color: rgba(255,255,255,.85);
+      font-family: var(--serif);
+      font-size: 12px;
+      letter-spacing: .16em;
+    }
+
+    .heritage-cert {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 46%;
+      min-height: 245px;
+      padding: 38px 32px;
+      border: 1px solid rgba(135, 42, 36, .28);
+      background: var(--paper);
+      box-shadow: 12px 20px 50px rgba(52, 36, 20, .13);
+    }
+
+    .heritage-cert::before {
+      content: "非遗";
+      position: absolute;
+      right: 24px;
+      top: 22px;
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      border: 1px solid var(--red);
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      transform: rotate(4deg);
+    }
+
+    .heritage-cert small {
+      color: var(--red);
+      font-family: Georgia, serif;
+      letter-spacing: .18em;
+    }
+
+    .heritage-cert strong {
+      display: block;
+      max-width: 170px;
+      margin-top: 25px;
+      font-family: var(--serif);
+      font-size: 21px;
+      line-height: 1.7;
+      letter-spacing: .08em;
+    }
+
+    .heritage-copy .section-desc {
+      margin-top: 24px;
+      font-family: var(--serif);
+      font-size: 17px;
+    }
+
+    .heritage-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      margin-top: 38px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .heritage-point {
+      min-height: 112px;
+      padding: 22px;
+      background: var(--paper-light);
+    }
+
+    .heritage-point span {
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 12px;
+      letter-spacing: .15em;
+    }
+
+    .heritage-point strong {
+      display: block;
+      margin-top: 8px;
+      font-family: var(--serif);
+      font-size: 16px;
+      letter-spacing: .06em;
+    }
+
+    .doctors {
+      overflow: hidden;
+      color: #f7f0e5;
+      background: var(--red-deep);
+    }
+
+    .doctors::before {
+      content: "医";
+      position: absolute;
+      right: -45px;
+      top: -100px;
+      color: rgba(255,255,255,.035);
+      font-family: var(--serif);
+      font-size: 440px;
+      line-height: 1;
+    }
+
+    .doctors .section-kicker {
+      color: #d9b998;
+    }
+
+    .doctors .section-desc {
+      color: rgba(255,255,255,.66);
+    }
+
+    .doctors .btn-outline {
+      color: #eadbca;
+      border-color: rgba(255,255,255,.35);
+    }
+
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .doctor-card {
+      position: relative;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.035);
+      transition: transform .3s ease, background .3s ease;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,.07);
+    }
+
+    .doctor-photo {
+      position: relative;
+      height: 360px;
+      background: linear-gradient(145deg, #8f8171, #4f4a42);
+    }
+
+    .doctor-card:nth-child(2) .doctor-photo {
+      background: linear-gradient(145deg, #9a958a, #62685f);
+    }
+
+    .doctor-card:nth-child(3) .doctor-photo {
+      background: linear-gradient(145deg, #877c6c, #4c514d);
+    }
+
+    .doctor-info {
+      position: relative;
+      padding: 28px 30px 31px;
+    }
+
+    .doctor-index {
+      position: absolute;
+      right: 24px;
+      top: 22px;
+      color: rgba(255,255,255,.28);
+      font-family: Georgia, serif;
+      font-size: 26px;
+    }
+
+    .doctor-info h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: .08em;
+    }
+
+    .doctor-info p {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .doctor-info small {
+      display: inline-block;
+      margin-top: 18px;
+      color: #d9b998;
+      font-size: 11px;
+      letter-spacing: .12em;
+    }
+
+    .therapies {
+      background: var(--paper);
+    }
+
+    .therapy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .therapy-item {
+      position: relative;
+      min-height: 300px;
+      padding: 34px 30px;
+      overflow: hidden;
+      background: var(--paper-light);
+      transition: color .32s ease, background .32s ease;
+    }
+
+    .therapy-item::before {
+      content: attr(data-no);
+      position: absolute;
+      right: 17px;
+      bottom: -12px;
+      color: rgba(135, 42, 36, .06);
+      font-family: Georgia, serif;
+      font-size: 104px;
+      line-height: 1;
+      transition: color .32s ease, transform .32s ease;
+    }
+
+    .therapy-item:hover {
+      color: #fff8ed;
+      background: var(--red);
+    }
+
+    .therapy-item:hover::before {
+      color: rgba(255,255,255,.1);
+      transform: translateY(-5px);
+    }
+
+    .therapy-no {
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 12px;
+      letter-spacing: .16em;
+    }
+
+    .therapy-item:hover .therapy-no,
+    .therapy-item:hover p {
+      color: rgba(255,255,255,.72);
+    }
+
+    .therapy-item h3 {
+      position: relative;
+      z-index: 1;
+      margin: 42px 0 0;
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: .08em;
+    }
+
+    .therapy-item p {
+      position: relative;
+      z-index: 1;
+      margin: 14px 0 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+      line-height: 1.85;
+      transition: color .32s ease;
+    }
+
+    .therapy-mark {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      width: 28px;
+      height: 1px;
+      background: var(--red);
+    }
+
+    .therapy-item:hover .therapy-mark {
+      background: #f7e9d8;
+    }
+
+    .conditions {
+      background:
+        linear-gradient(90deg, rgba(91, 102, 86, .07), transparent 24%),
+        var(--paper-light);
+    }
+
+    .conditions-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 90px;
+    }
+
+    .conditions-heading {
+      position: sticky;
+      top: 130px;
+      align-self: start;
+    }
+
+    .conditions-heading .section-title {
+      font-size: 44px;
+    }
+
+    .condition-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .condition {
+      position: relative;
+      min-height: 190px;
+      padding: 29px 25px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.26);
+      transition: background .25s ease, transform .25s ease;
+    }
+
+    .condition:hover {
+      z-index: 2;
+      background: #fffaf1;
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(50, 40, 26, .09);
+    }
+
+    .condition .index {
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 11px;
+      letter-spacing: .14em;
+    }
+
+    .condition h3 {
+      margin: 34px 0 0;
+      font-family: var(--serif);
+      font-size: 18px;
+      letter-spacing: .06em;
+    }
+
+    .condition p {
+      margin: 10px 0 0;
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .news {
+      background: var(--paper);
+    }
+
+    .news-layout {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 52px;
+    }
+
+    .news-feature {
+      display: grid;
+      grid-template-columns: 1fr .86fr;
+      min-height: 410px;
+      background: var(--red-deep);
+      box-shadow: var(--shadow);
+    }
+
+    .news-image {
+      position: relative;
+      min-height: 410px;
+      background: linear-gradient(145deg, #a99b84, #5f5c52);
+    }
+
+    .news-feature-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 46px 42px;
+      color: #f7efe4;
+    }
+
+    .news-meta {
+      color: #d8b898;
+      font-family: Georgia, serif;
+      font-size: 11px;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .news-feature h3 {
+      margin: 22px 0 0;
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.65;
+      letter-spacing: .06em;
+    }
+
+    .news-feature p {
+      margin: 18px 0 0;
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      margin-top: 28px;
+      color: #ead4bd;
+      font-size: 12px;
+      letter-spacing: .12em;
+    }
+
+    .text-link::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .news-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .news-row {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 25px;
+      padding: 29px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .news-date {
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .news-date small {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink-soft);
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: .12em;
+    }
+
+    .news-row h4 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.6;
+      letter-spacing: .04em;
+    }
+
+    .news-row p {
+      margin: 8px 0 0;
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .site-footer {
+      color: rgba(255,255,255,.76);
+      background: #241d19;
+    }
+
+    .footer-contact {
+      border-bottom: 1px solid rgba(255,255,255,.11);
+      background:
+        linear-gradient(90deg, rgba(135,42,36,.65), rgba(77,30,27,.8)),
+        #5d2622;
+    }
+
+    .footer-contact-inner {
+      min-height: 190px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .footer-contact h2 {
+      margin: 0;
+      color: #fff7eb;
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: .08em;
+    }
+
+    .footer-contact p {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.65);
+      font-size: 13px;
+      letter-spacing: .05em;
+    }
+
+    .footer-phone {
+      color: #fff7eb;
+      font-family: Georgia, var(--serif);
+      font-size: 34px;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr .8fr 1fr;
+      gap: 60px;
+      padding: 76px 0 60px;
+    }
+
+    .footer-brand .brand-seal {
+      color: #d6b899;
+      border-color: #d6b899;
+    }
+
+    .footer-brand .brand-name {
+      color: #fff7eb;
+    }
+
+    .footer-brand .brand-sub {
+      color: rgba(255,255,255,.42);
+    }
+
+    .footer-brand p {
+      max-width: 330px;
+      margin: 27px 0 0;
+      color: rgba(255,255,255,.54);
+      font-family: var(--serif);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .footer-column h3 {
+      margin: 0 0 22px;
+      color: #fff7eb;
+      font-family: var(--serif);
+      font-size: 15px;
+      letter-spacing: .12em;
+    }
+
+    .footer-column a,
+    .footer-column span {
+      display: block;
+      margin: 10px 0;
+      color: rgba(255,255,255,.52);
+      font-size: 12px;
+      line-height: 1.75;
+      transition: color .2s ease;
+    }
+
+    .footer-column a:hover {
+      color: #fff2df;
+    }
+
+    .qr-placeholder {
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      margin-top: 16px;
+      color: rgba(255,255,255,.5);
+      border: 1px solid rgba(255,255,255,.24);
+      background:
+        linear-gradient(45deg, rgba(255,255,255,.04) 25%, transparent 25% 75%, rgba(255,255,255,.04) 75%),
+        linear-gradient(45deg, rgba(255,255,255,.04) 25%, transparent 25% 75%, rgba(255,255,255,.04) 75%);
+      background-position: 0 0, 5px 5px;
+      background-size: 10px 10px;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .footer-bottom {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.34);
+      font-size: 11px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      animation: reveal-in .7s ease forwards;
+    }
+
+    @keyframes reveal-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .delay-1 { animation-delay: .08s; }
+    .delay-2 { animation-delay: .16s; }
+    .delay-3 { animation-delay: .24s; }
+
+    @media (max-width: 1160px) {
+      :root {
+        --container: min(100% - 48px, 1100px);
+      }
+
+      .nav-wrap {
+        grid-template-columns: 200px 1fr auto;
+        gap: 18px;
+      }
+
+      .main-nav {
+        gap: 16px;
+      }
+
+      .main-nav a {
+        font-size: 12px;
+      }
+
+      .phone-link {
+        font-size: 16px;
+      }
+
+      .hero-inner {
+        grid-template-columns: .95fr 1.05fr;
+        gap: 40px;
+      }
+
+      .hero-copy {
+        padding-left: 20px;
+      }
+
+      .therapy-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --container: min(100% - 36px, 820px);
+      }
+
+      .utility-meta span:first-child {
+        display: none;
+      }
+
+      .nav-wrap {
+        height: 74px;
+        grid-template-columns: 1fr auto auto;
+      }
+
+      .brand-seal {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+
+      .main-nav {
+        position: fixed;
+        inset: 110px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 35px 28px;
+        background: rgba(247,243,234,.985);
+        transform: translateX(100%);
+        transition: transform .3s ease;
+      }
+
+      .menu-open .main-nav {
+        transform: translateX(0);
+      }
+
+      .main-nav a {
+        padding: 17px 8px;
+        border-bottom: 1px solid var(--line);
+        font-family: var(--serif);
+        font-size: 18px;
+      }
+
+      .main-nav a::after {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu-open .menu-toggle span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .menu-open .menu-toggle span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-open .menu-toggle span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero::before {
+        display: none;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding: 70px 0 45px;
+      }
+
+      .image-banner-inner {
+        padding-bottom: 62px;
+      }
+
+      .hero-copy {
+        padding-left: 0;
+      }
+
+      .hero-visual {
+        min-height: 520px;
+      }
+
+      .hero-facts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fact:nth-child(2) {
+        border-right: 0;
+      }
+
+      .fact:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .heritage-grid {
+        grid-template-columns: 1fr;
+        gap: 65px;
+      }
+
+      .doctor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .doctor-card {
+        display: grid;
+        grid-template-columns: .8fr 1fr;
+      }
+
+      .doctor-photo {
+        height: 300px;
+      }
+
+      .conditions-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .conditions-heading {
+        position: static;
+      }
+
+      .news-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      :root {
+        --container: calc(100% - 28px);
+      }
+
+      .utility-bar {
+        display: none;
+      }
+
+      .main-nav {
+        inset: 74px 0 0;
+      }
+
+      .phone-link {
+        gap: 5px;
+        font-size: 13px;
+      }
+
+      .phone-link::before {
+        display: none;
+      }
+
+      .image-banner {
+        min-height: max(560px, calc(100svh - 74px));
+      }
+
+      .image-banner::before {
+        inset: 14px;
+      }
+
+      .image-banner-inner {
+        display: block;
+        padding: 0 0 68px;
+      }
+
+      .image-banner-copy {
+        position: absolute;
+        left: 0;
+        bottom: 72px;
+      }
+
+      .image-banner-copy h1 {
+        margin: 16px 0 12px;
+        font-size: 43px;
+      }
+
+      .image-banner-copy p {
+        max-width: 280px;
+        font-size: 12px;
+        line-height: 1.8;
+      }
+
+      .banner-image-note {
+        position: absolute;
+        right: 0;
+        top: 42px;
+        min-width: 0;
+        padding: 13px 0 13px 16px;
+        font-size: 9px;
+      }
+
+      .banner-image-note strong {
+        font-size: 13px;
+      }
+
+      .banner-scroll {
+        display: none;
+      }
+
+      .hero-inner {
+        gap: 30px;
+        padding-top: 52px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+        letter-spacing: .05em;
+      }
+
+      .hero-lead {
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 390px;
+      }
+
+      .hero-block {
+        inset: 0 0 26px 16px;
+      }
+
+      .hero-red-panel {
+        width: 145px;
+        height: 160px;
+        padding: 20px;
+        font-size: 16px;
+      }
+
+      .hero-stamp {
+        right: -5px;
+        top: 26px;
+        width: 70px;
+        height: 70px;
+        font-size: 12px;
+      }
+
+      .hero-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .fact {
+        min-height: 76px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fact:last-child {
+        border-bottom: 0;
+      }
+
+      .section {
+        padding: 82px 0;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 38px;
+      }
+
+      .section-title,
+      .conditions-heading .section-title {
+        font-size: 34px;
+      }
+
+      .heritage-visual {
+        min-height: 470px;
+      }
+
+      .heritage-main {
+        width: 90%;
+        height: 370px;
+      }
+
+      .heritage-cert {
+        width: 64%;
+        min-height: 205px;
+        padding: 26px 22px;
+      }
+
+      .heritage-cert strong {
+        font-size: 17px;
+      }
+
+      .heritage-points {
+        grid-template-columns: 1fr;
+      }
+
+      .doctor-card {
+        display: block;
+      }
+
+      .doctor-photo {
+        height: 330px;
+      }
+
+      .therapy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .therapy-item {
+        min-height: 250px;
+      }
+
+      .condition-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .condition {
+        min-height: 170px;
+      }
+
+      .news-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .news-image {
+        min-height: 260px;
+      }
+
+      .news-feature-copy {
+        padding: 34px 27px;
+      }
+
+      .footer-contact-inner {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 42px 0;
+      }
+
+      .footer-contact h2 {
+        font-size: 27px;
+      }
+
+      .footer-phone {
+        font-size: 27px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 58px 0 44px;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="page-wrapper">
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <div>董氏奇穴针灸技法非物质文化遗产传承医馆</div>
+      <div class="utility-meta">
+        <span>营业时间 09:00—19:00</span>
+        <span>成都市锦江区梨花街8号名望大厦501</span>
+      </div>
+    </div>
+  </div>
 
-<!-- Header -->
-<header class="header">
-  <a href="index.html" class="header-logo">
-    <span class="logo-text">尔意堂</span>
-    <span class="logo-sub">中医馆</span>
-  </a>
-  <nav class="nav-menu">
-    <a href="index.html">首页</a>
-    <a href="therapy.html">特色疗法</a>
-    <a href="conditions.html">专长调理</a>
-    <a href="tea-list.html">养生茶品</a>
-    <a href="cases-list.html">案例故事</a>
-    <a href="news-list.html">医馆资讯</a>
-    <a href="about.html">关于我们</a>
-  </nav>
-  <div class="header-cta">
-    <img src="assets/svg/5_16.svg" alt="" class="phone-icon">
-    <span class="phone-text">199 8209 7343</span>
-  </div>
-</header>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="尔意堂首页">
+        <span class="brand-seal">尔意堂</span>
+        <span class="brand-copy">
+          <strong class="brand-name">尔意堂</strong>
+          <span class="brand-sub">Traditional Chinese Medicine</span>
+        </span>
+      </a>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-badge">
-      <img src="assets/svg/5_22.svg" alt="">
-      西南唯一董氏奇穴非遗传承
-    </div>
-    <h1 class="hero-title">治愈不只有药香与银针</h1>
-    <p class="hero-subtitle">还有一杯暖茶、一段对话、一群朋友</p>
-    <p class="hero-desc">尔意堂是西南唯一董氏奇穴针灸非遗传承医馆，融合治疗、养生与社交的复合性空间。三甲医院经验医师与资深老中医联合坐诊，提供针灸、推拿、正骨、艾灸、药浴等一体化中医服务。</p>
-    <div class="hero-buttons">
-      <a href="contact.html" class="btn btn-primary">预约到馆</a>
-      <a href="therapy.html" class="btn btn-outline">了解疗法</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-visual-box">
-      <div class="cert-display">非遗</div>
-    </div>
-  </div>
-</section>
+      <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <a class="active" href="index.html">首页</a>
+        <a href="brand.html">品牌介绍</a>
+        <a href="article-list.html#therapies">特色疗法</a>
+        <a href="article-list.html#conditions">调理方向</a>
+        <a href="article-list.html#tea">养生茶品</a>
+        <a href="article-list.html#cases">案例故事</a>
+        <a href="contact.html">联系我们</a>
+      </nav>
 
-<!-- 节气养生时钟 -->
-<section class="section bg-dark" style="padding:80px;display:flex;flex-direction:column;align-items:center;gap:32px">
-  <div style="display:flex;align-items:center;gap:16px">
-    <span class="section-label" style="margin-bottom:0">节气养生</span>
-    <div class="section-divider"></div>
-    <h2 class="section-title light" style="margin-bottom:0;font-size:28px">当前节气 · 小暑</h2>
-  </div>
-  <div class="dark-cards">
-    <div class="dark-card">
-      <img src="assets/svg/5_49.svg" alt="" class="card-icon">
-      <div class="card-title">推荐疗法：刮痧清热</div>
-      <div class="card-desc">小暑时节暑热内伏，刮痧可疏通经络、清热解暑，尤其适合颈肩僵硬、头晕乏力等暑湿困扰。</div>
+      <a class="phone-link" href="tel:19982097343">199 8209 7343</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="dark-card">
-      <img src="assets/svg/5_56.svg" alt="" class="card-icon">
-      <div class="card-title">推荐茶品：清暑生津饮</div>
-      <div class="card-desc">以荷叶、淡竹叶、麦冬配伍，清暑益气、生津止渴，适合夏季日常代茶饮用。</div>
-    </div>
-    <div class="dark-card">
-      <img src="assets/svg/5_49.svg" alt="" class="card-icon">
-      <div class="card-title">养生建议</div>
-      <div class="card-desc">宜晚睡早起，适当午休；饮食清淡，多食苦瓜、绿豆、冬瓜等清暑利湿之品；避免烈日暴晒。</div>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- 八大疗法区 -->
-<section class="section bg-warm">
-  <div class="section-header">
-    <span class="section-label">特色疗法</span>
-    <h2 class="section-title">八大特色疗法</h2>
-  </div>
-  <div class="card-grid">
-    <div class="card-grid-row four-col" style="margin-bottom:20px">
-      <div class="card-item">
-        <div class="card-icon-wrap"><img src="assets/svg/5_72.svg" alt=""></div>
-        <div class="card-name">董氏奇穴针灸</div>
-        <div class="card-tags"><span class="tag">非遗技法</span><span class="tag">疼痛治疗</span></div>
-        <div class="card-info">西南唯一非遗传承，取穴精准、针感独特，对各类疼痛、中风后遗症疗效显著。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-icon-wrap"><img src="assets/svg/5_78.svg" alt=""></div>
-        <div class="card-name">中医推拿</div>
-        <div class="card-tags"><span class="tag">经络疏通</span><span class="tag">骨骼调理</span></div>
-        <div class="card-info">以传统手法疏通经络、松解筋膜，针对颈腰椎病、关节疼痛有显著缓解效果。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-icon-wrap"><img src="assets/svg/5_84.svg" alt=""></div>
-        <div class="card-name">正骨整脊</div>
-        <div class="card-tags"><span class="tag">脊柱矫正</span><span class="tag">体态调整</span></div>
-        <div class="card-info">专业正骨手法矫正脊柱侧弯、骨盆倾斜等问题，从根源改善体态与疼痛。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-icon-wrap"><img src="assets/svg/5_90.svg" alt=""></div>
-        <div class="card-name">艾灸调理</div>
-        <div class="card-tags"><span class="tag">温经散寒</span><span class="tag">慢病调理</span></div>
-        <div class="card-info">精选道地艾绒，辨证选穴，温经通络、扶阳固本，适合寒湿体质和慢性病调养。</div>
-      </div>
-    </div>
-    <div class="card-grid-row four-col">
-      <div class="card-item">
-        <div class="card-icon-wrap"><img src="assets/svg/5_97.svg" alt=""></div>
-        <div class="card-name">中药药浴</div>
-        <div class="card-tags"><span class="tag">皮肤调理</span><span class="tag">排毒养颜</span></div>
-        <div class="card-info">精选数十味道地药材配制浴方，通过皮肤吸收药力，调理皮肤病、风湿痹痛等。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-icon-wrap"><img src="assets/svg/5_102.svg" alt=""></div>
-        <div class="card-name">拔罐刮痧</div>
-        <div class="card-tags"><span class="tag">排毒祛湿</span><span class="tag">疏通经络</span></div>
-        <div class="card-info">传统拔罐配合刮痧，有效排出体内湿气和毒素，改善肩颈酸痛、疲劳综合征。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-icon-wrap"><img src="assets/svg/5_108.svg" alt=""></div>
-        <div class="card-name">中药内调</div>
-        <div class="card-tags"><span class="tag">辨证施治</span><span class="tag">体质调理</span></div>
-        <div class="card-info">资深中医师辨证论治，一人一方精准配伍，调理脏腑功能，从内而外改善健康。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-icon-wrap"><img src="assets/svg/5_114.svg" alt=""></div>
-        <div class="card-name">经络检测</div>
-        <div class="card-tags"><span class="tag">科学评估</span><span class="tag">精准干预</span></div>
-        <div class="card-info">现代经络检测设备，客观评估身体状态，为个性化调理方案提供科学依据。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 调理方向区 -->
-<section class="section bg-warm-alt">
-  <div class="section-header">
-    <span class="section-label">专长调理</span>
-    <h2 class="section-title">九大调理方向</h2>
-  </div>
-  <div class="card-grid">
-    <div class="card-grid-row three-col" style="margin-bottom:16px">
-      <div class="card-item">
-        <div class="card-name">颈椎腰椎</div>
-        <div class="card-info">针对颈椎病、腰椎间盘突出、腰肌劳损等常见脊柱问题，董氏奇穴针灸配合推拿正骨，见效快、不易复发。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-name">肩周关节</div>
-        <div class="card-info">肩周炎、膝关节炎、网球肘等关节问题，综合运用针灸、推拿、中药外敷，快速缓解疼痛、恢复关节功能。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-name">中风偏瘫</div>
-        <div class="card-info">中风后遗症的康复调理，董氏奇穴独特的取穴体系对偏瘫、言语障碍、面瘫等有独到疗效。</div>
-      </div>
-    </div>
-    <div class="card-grid-row three-col" style="margin-bottom:16px">
-      <div class="card-item">
-        <div class="card-name">慢性病调理</div>
-        <div class="card-info">高血压、糖尿病、高血脂等慢性病的中医调理，辨证施治、整体调节，减少药物依赖、提高生活质量。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-name">失眠亚健康</div>
-        <div class="card-info">失眠、焦虑、疲劳综合征等亚健康状态，针灸安神定志配合中药调理，重建健康睡眠节律。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-name">女性调理</div>
-        <div class="card-info">月经不调、痛经、更年期综合征等妇科问题，艾灸暖宫、中药调经，温和调养女性健康。</div>
-      </div>
-    </div>
-    <div class="card-grid-row three-col">
-      <div class="card-item">
-        <div class="card-name">消化系统</div>
-        <div class="card-info">慢性胃炎、肠易激综合征、功能性消化不良等，针灸健脾和胃配合中药辨证施治。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-name">皮肤问题</div>
-        <div class="card-info">湿疹、荨麻疹、痤疮等皮肤顽疾，内调外治结合，中药内服配合药浴外洗从根论治。</div>
-      </div>
-      <div class="card-item">
-        <div class="card-name">体质调理</div>
-        <div class="card-info">根据中医体质辨识，制定个性化调理方案，改善偏颇体质，增强免疫力，预防疾病发生。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 本期活动区 -->
-<section class="section bg-warm">
-  <div class="section-header">
-    <span class="section-label">医馆资讯</span>
-    <h2 class="section-title">本期活动</h2>
-  </div>
-  <div class="activity-cards">
-    <div class="activity-card">
-      <div class="activity-image"><img src="assets/svg/5_178.svg" alt=""></div>
-      <div class="activity-content">
-        <div class="activity-title">小小中医班 · 亲子体验课</div>
-        <div class="activity-desc">带孩子们走进中医的世界——认识草药、学习穴位、体验把脉。每周末上午，适合5-12岁儿童参加。</div>
-        <div class="activity-footer">
-          <span class="activity-date">2026年7月-8月 · 每周末</span>
-          <span class="activity-link">查看详情 →</span>
+<main id="top">
+    <section class="image-banner" aria-label="尔意堂首页主视觉">
+      <div class="container image-banner-inner">
+        <div class="image-banner-copy reveal visible">
+          <div class="eyebrow">Er Yi Tang Chinese Medicine</div>
+          <h1>守古法，养今人</h1>
+          <p>一处融合诊疗、养生与交流的中式疗愈空间</p>
+        </div>
+        <div class="banner-image-note">
+          <strong>首页主视觉大图</strong>
+          图片占位 · 建议使用医馆空间或中医诊疗氛围图
         </div>
       </div>
-    </div>
-    <div class="activity-card">
-      <div class="activity-image"><img src="assets/svg/5_188.svg" alt=""></div>
-      <div class="activity-content">
-        <div class="activity-title">非遗传承 · 董氏奇穴公益讲座</div>
-        <div class="activity-desc">张明远主任亲授董氏奇穴基础理论及常见病症取穴方法，适合中医爱好者和健康从业者。</div>
-        <div class="activity-footer">
-          <span class="activity-date">2026年7月20日 · 14:00-16:00</span>
-          <span class="activity-link">立即报名 →</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <span class="banner-scroll">向下浏览</span>
+    </section>
 
-<!-- 养生茶品区 -->
-<section class="section bg-warm-alt">
-  <div class="section-header">
-    <span class="section-label">养生茶品</span>
-    <h2 class="section-title">养生茶品精选</h2>
-  </div>
-  <div class="product-cards">
-    <div class="product-card">
-      <div class="product-image">🍵</div>
-      <div class="product-info">
-        <div class="product-name">清脂降浊茶</div>
-        <div class="product-desc">山楂、决明子、荷叶配伍，降脂化浊，适合三高人群日常调养</div>
-        <div class="product-meta">
-          <span class="product-price">¥128</span>
-          <span style="font-size:12px;color:var(--text-light)">月装30包</span>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal visible">
+          <div class="eyebrow">非遗传承 · 专业为本</div>
+          <h1>以古法之精<br>养<span class="accent">身心之和</span></h1>
+          <p class="hero-lead">
+            尔意堂不仅是一家中医诊疗机构，更是一处融合诊疗、养生与交流的复合型中式空间。
+            在茶汤温润与草木药香之间，以专业而温暖的方式陪伴身心调养。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="brand.html">了解尔意堂</a>
+            <a class="btn btn-outline" href="contact.html">查看到店信息</a>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">🍵</div>
-      <div class="product-info">
-        <div class="product-name">安神助眠茶</div>
-        <div class="product-desc">酸枣仁、百合、茯苓配伍，宁心安神，改善睡眠质量</div>
-        <div class="product-meta">
-          <span class="product-price">¥138</span>
-          <span style="font-size:12px;color:var(--text-light)">月装30包</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">🍵</div>
-      <div class="product-info">
-        <div class="product-name">祛湿健脾茶</div>
-        <div class="product-desc">薏苡仁、茯苓、陈皮配伍，健脾祛湿，适合湿气重、易疲劳人群</div>
-        <div class="product-meta">
-          <span class="product-price">¥118</span>
-          <span style="font-size:12px;color:var(--text-light)">月装30包</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">🍵</div>
-      <div class="product-info">
-        <div class="product-name">灵芝扶正茶</div>
-        <div class="product-desc">灵芝、黄芪、枸杞配伍，扶正固本，增强免疫力</div>
-        <div class="product-meta">
-          <span class="product-price">¥168</span>
-          <span style="font-size:12px;color:var(--text-light)">月装30包</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- 案例故事区 -->
-<section class="section bg-warm">
-  <div class="section-header">
-    <span class="section-label">案例故事</span>
-    <h2 class="section-title">真实治疗案例</h2>
-  </div>
-  <div class="activity-cards" style="max-width:1280px">
-    <div class="activity-card">
-      <div class="activity-image" style="height:160px;font-family:var(--font-display);font-size:24px;color:var(--gold)">脊柱侧弯康复</div>
-      <div class="activity-content">
-        <div class="activity-title">15岁女孩脊柱侧弯矫正记录</div>
-        <div class="activity-desc">发现脊柱侧弯28度，经过6个月的正骨推拿配合康复训练，侧弯角度缩减至8度。</div>
-        <div class="activity-footer">
-          <span class="activity-date">治疗周期：6个月</span>
-          <span class="activity-link">阅读全文 →</span>
+        <div class="hero-visual reveal delay-1">
+          <div class="hero-block"></div>
+          <div class="hero-red-panel">一脉银针承古<br>一方暖意养身</div>
+          <div class="hero-stamp">董氏奇穴<br>非遗传承</div>
         </div>
       </div>
-    </div>
-    <div class="activity-card">
-      <div class="activity-image" style="height:160px;font-family:var(--font-display);font-size:24px;color:var(--gold)">中风偏瘫康复</div>
-      <div class="activity-content">
-        <div class="activity-title">中风后偏瘫患者的康复之路</div>
-        <div class="activity-desc">62岁脑梗后左侧偏瘫，董氏奇穴针灸3个月后能独立行走，6个月恢复日常生活自理。</div>
-        <div class="activity-footer">
-          <span class="activity-date">治疗周期：6个月</span>
-          <span class="activity-link">阅读全文 →</span>
+
+    </section>
+
+    <section class="section heritage" id="heritage">
+      <div class="container heritage-grid">
+        <div class="heritage-visual reveal">
+          <div class="heritage-main" data-label="医馆空间 / 传承场景图片占位"></div>
+          <div class="heritage-cert">
+            <small>INTANGIBLE HERITAGE</small>
+            <strong>董氏奇穴针灸技法非物质文化遗产传承医馆</strong>
+          </div>
+        </div>
+
+        <div class="heritage-copy reveal delay-1">
+          <div class="section-kicker">Brand & Heritage</div>
+          <h2 class="section-title">一间医馆，也是一处<br>身与心的温养之所</h2>
+          <p class="section-desc">
+            尔意堂融合中医诊疗、养生茶事与身心交流。馆内由经验丰富的医师联合坐诊，
+            每位到访者均先经过细致评估，再结合个体情况安排针灸、用药或理疗方案。
+            我们重视技术的传承，也珍视人与人之间从容而真诚的交流。
+          </p>
+          <div class="heritage-points">
+            <div class="heritage-point">
+              <span>01 / 诊疗原则</span>
+              <strong>先诊断，后施治</strong>
+            </div>
+            <div class="heritage-point">
+              <span>02 / 服务方式</span>
+              <strong>辨证评估，因人而异</strong>
+            </div>
+            <div class="heritage-point">
+              <span>03 / 空间理念</span>
+              <strong>治疗、养生与交流融合</strong>
+            </div>
+            <div class="heritage-point">
+              <span>04 / 传承核心</span>
+              <strong>董氏奇穴针灸技法</strong>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="activity-card">
-      <div class="activity-image" style="height:160px;font-family:var(--font-display);font-size:24px;color:var(--gold)">糖尿病调理</div>
-      <div class="activity-content">
-        <div class="activity-title">糖尿病患者的停药之路</div>
-        <div class="activity-desc">2型糖尿病5年病史，中药调理配合针灸治疗8个月，血糖稳定下降，西药用量减半。</div>
-        <div class="activity-footer">
-          <span class="activity-date">治疗周期：8个月</span>
-          <span class="activity-link">阅读全文 →</span>
+    </section>
+
+    <section class="section doctors" id="doctors">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Medical Team</div>
+            <h2 class="section-title">医者守正，以专业为本</h2>
+            <p class="section-desc">由具备丰富临床经验的医师与资深中医联合坐诊，重视细致评估与个体化安排。</p>
+          </div>
+        </div>
+
+        <div class="doctor-grid">
+          <article class="doctor-card reveal">
+            <div class="doctor-photo" data-label="医师照片占位"></div>
+            <div class="doctor-info">
+              <span class="doctor-index">01</span>
+              <h3>董氏奇穴传承医师</h3>
+              <p>专注董氏奇穴针灸及相关调理方向，具体姓名、职称与执业资料待补充。</p>
+              <small>医师资料待确认</small>
+            </div>
+          </article>
+          <article class="doctor-card reveal delay-1">
+            <div class="doctor-photo" data-label="医师照片占位"></div>
+            <div class="doctor-info">
+              <span class="doctor-index">02</span>
+              <h3>资深中医坐诊医师</h3>
+              <p>重视中医辨证与个体情况，具体姓名、职称与专业介绍待补充。</p>
+              <small>医师资料待确认</small>
+            </div>
+          </article>
+          <article class="doctor-card reveal delay-2">
+            <div class="doctor-photo" data-label="医师照片占位"></div>
+            <div class="doctor-info">
+              <span class="doctor-index">03</span>
+              <h3>中医康复治疗医师</h3>
+              <p>结合中医养生与运动康复理念，具体姓名、职称与执业资料待补充。</p>
+              <small>医师资料待确认</small>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- 联系区域 -->
-<section class="contact-section">
-  <div class="contact-left">
-    <span class="section-label">联系我们</span>
-    <h2 class="contact-title">天府广场地铁D出口步行450m</h2>
-    <div class="contact-info">
-      <p>地址：成都市锦江区梨花街8号名望大厦501</p>
-      <p>预约咨询：199 8209 7343</p>
-      <p>营业时间：09:00 - 19:00</p>
-    </div>
-    <a href="contact.html" class="btn btn-primary">预约到馆</a>
-  </div>
-  <div class="contact-right">
-    <div class="qr-box">
-      <div class="qr-placeholder">微信二维码</div>
-      <span class="qr-label">扫码添加微信预约咨询</span>
-    </div>
-  </div>
-</section>
+    <section class="section therapies" id="therapies">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Featured Therapies</div>
+            <h2 class="section-title">八项特色技法，守其本真</h2>
+            <p class="section-desc">以传统技法为基础，结合来访者的实际情况，由专业人员评估后安排相应服务。</p>
+          </div>
+        </div>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-left">
-    <span class="footer-logo">尔意堂中医馆</span>
-    <span class="footer-divider"></span>
-    <span class="footer-tagline">西南唯一董氏奇穴非遗传承医馆</span>
-  </div>
-  <div class="footer-right">2026 尔意堂中医馆 | 董氏奇穴针灸技法 非遗认证 川001号</div>
-</footer>
+        <div class="therapy-grid">
+          <article class="therapy-item reveal" data-no="01">
+            <span class="therapy-no">THERAPY 01</span>
+            <h3>董氏奇穴针灸</h3>
+            <p>以董氏奇穴为核心，重视辨证、取穴与施治过程。</p>
+            <span class="therapy-mark"></span>
+          </article>
+          <article class="therapy-item reveal delay-1" data-no="02">
+            <span class="therapy-no">THERAPY 02</span>
+            <h3>道家推拿</h3>
+            <p>以沉稳手法进行松筋理络，关注身体疲劳与紧张状态。</p>
+            <span class="therapy-mark"></span>
+          </article>
+          <article class="therapy-item reveal delay-2" data-no="03">
+            <span class="therapy-no">THERAPY 03</span>
+            <h3>禅龙正骨</h3>
+            <p>融合多类传统正骨手法，由专业人员评估后实施。</p>
+            <span class="therapy-mark"></span>
+          </article>
+          <article class="therapy-item reveal delay-3" data-no="04">
+            <span class="therapy-no">THERAPY 04</span>
+            <h3>古方药油推拿</h3>
+            <p>采用古法调配药油，结合推拿手法进行日常养护。</p>
+            <span class="therapy-mark"></span>
+          </article>
+          <article class="therapy-item reveal" data-no="05">
+            <span class="therapy-no">THERAPY 05</span>
+            <h3>中医康复治疗</h3>
+            <p>将中医养生与运动康复理念相结合，制定相应计划。</p>
+            <span class="therapy-mark"></span>
+          </article>
+          <article class="therapy-item reveal delay-1" data-no="06">
+            <span class="therapy-no">THERAPY 06</span>
+            <h3>道家降龙药蒸</h3>
+            <p>选用道地药材熬制药汤，通过传统药蒸方式温养身体。</p>
+            <span class="therapy-mark"></span>
+          </article>
+          <article class="therapy-item reveal delay-2" data-no="07">
+            <span class="therapy-no">THERAPY 07</span>
+            <h3>非遗瑶浴</h3>
+            <p>选取大瑶山道地药材，遵循传统方式进行熬制与应用。</p>
+            <span class="therapy-mark"></span>
+          </article>
+          <article class="therapy-item reveal delay-3" data-no="08">
+            <span class="therapy-no">THERAPY 08</span>
+            <h3>非遗雷音艾灸</h3>
+            <p>选用非遗认证艾绒，结合传统艾灸方式温养经络。</p>
+            <span class="therapy-mark"></span>
+          </article>
+        </div>
+      </div>
+    </section>
 
-</div><!-- .page-wrapper -->
-<script src="js/main.js"></script>
+    <section class="section conditions" id="conditions">
+      <div class="container conditions-layout">
+        <div class="conditions-heading reveal">
+          <div class="section-kicker">Conditioning</div>
+          <h2 class="section-title">从身体所感<br>找到调理方向</h2>
+          <p class="section-desc">以下内容用于展示医馆主要关注方向，具体安排以实际评估为准。</p>
+        </div>
+
+        <div class="condition-grid">
+          <article class="condition reveal"><span class="index">01</span><h3>各类疼痛</h3><p>颈肩腰腿及常见职业性劳损方向</p></article>
+          <article class="condition reveal delay-1"><span class="index">02</span><h3>脊柱侧弯</h3><p>青少年脊柱状态与日常护理方向</p></article>
+          <article class="condition reveal delay-2"><span class="index">03</span><h3>中风偏瘫</h3><p>运动、语言等功能康复支持方向</p></article>
+          <article class="condition reveal"><span class="index">04</span><h3>慢性疾病</h3><p>常见慢性健康问题的中医调养方向</p></article>
+          <article class="condition reveal delay-1"><span class="index">05</span><h3>男科与妇科</h3><p>常见男科、妇科健康调理方向</p></article>
+          <article class="condition reveal delay-2"><span class="index">06</span><h3>脏腑调理</h3><p>从整体状态出发关注脏腑功能平衡</p></article>
+          <article class="condition reveal"><span class="index">07</span><h3>睡眠与情志</h3><p>睡眠状态、情绪压力等调养方向</p></article>
+          <article class="condition reveal delay-1"><span class="index">08</span><h3>结节增生</h3><p>常见结节与增生问题的健康管理方向</p></article>
+          <article class="condition reveal delay-2"><span class="index">09</span><h3>术后康复</h3><p>常见骨科术后功能恢复支持方向</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section news" id="news">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Latest News</div>
+            <h2 class="section-title">医馆资讯</h2>
+            <p class="section-desc">记录医馆活动、非遗传承与中医文化交流，让传统智慧在当代生活中继续生长。</p>
+          </div>
+          <a class="btn btn-outline" href="#">查看全部资讯</a>
+        </div>
+
+        <div class="news-layout">
+          <article class="news-feature reveal">
+            <div class="news-image" data-label="活动资讯图片占位"></div>
+            <div class="news-feature-copy">
+              <span class="news-meta">医馆活动 · 2026</span>
+              <h3>小小中医班<br>首课圆满礼成</h3>
+              <p>稚子启蒙，初窥岐黄之道。让中医文化在童蒙之心生根，也让传统养生智慧走进日常。</p>
+              <a class="text-link" href="#">阅读全文</a>
+            </div>
+          </article>
+
+          <div class="news-list reveal delay-1">
+            <article class="news-row">
+              <div class="news-date">24<small>JUL · 2026</small></div>
+              <div><h4>董氏奇穴非遗讲座：银针承古</h4><p>讲机理、述原理、重实操，共续岐黄薪火。</p></div>
+            </article>
+            <article class="news-row">
+              <div class="news-date">18<small>JUL · 2026</small></div>
+              <div><h4>传统中医技法公益交流活动</h4><p>活动标题及具体内容待医馆后续补充确认。</p></div>
+            </article>
+            <article class="news-row">
+              <div class="news-date">09<small>JUL · 2026</small></div>
+              <div><h4>夏季养生茶事分享会</h4><p>在一盏清茶中，了解顺时养生与日常调护。</p></div>
+            </article>
+            <article class="news-row">
+              <div class="news-date">01<small>JUL · 2026</small></div>
+              <div><h4>尔意堂医馆资讯栏目正式上线</h4><p>持续记录医馆活动、品牌动态与中医文化内容。</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-contact">
+      <div class="container footer-contact-inner">
+        <div>
+          <h2>一方安静空间，候您到来</h2>
+          <p>营业时间 09:00—19:00 · 天府广场地铁D出口步行约450米</p>
+        </div>
+        <a class="footer-phone" href="tel:19982097343">199 8209 7343</a>
+      </div>
+    </div>
+
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-seal">尔意堂</span>
+          <span class="brand-copy">
+            <strong class="brand-name">尔意堂</strong>
+            <span class="brand-sub">Traditional Chinese Medicine</span>
+          </span>
+        </a>
+        <p>融合中医诊疗、养生与交流的复合型空间。以专业为本，以传承为脉，在从容温暖的氛围中陪伴身心调养。</p>
+      </div>
+      <div class="footer-column">
+        <h3>快速导航</h3>
+        <a href="index.html">首页</a>
+        <a href="brand.html">品牌介绍</a>
+        <a href="#doctors">医师团队</a>
+        <a href="article-list.html">医馆资讯</a>
+      </div>
+      <div class="footer-column">
+        <h3>内容分类</h3>
+        <a href="article-list.html#therapies">特色疗法</a>
+        <a href="article-list.html#conditions">调理方向</a>
+        <a href="article-list.html#tea">养生茶品</a>
+        <a href="article-list.html#cases">案例故事</a>
+      </div>
+      <div class="footer-column">
+        <h3>联系我们</h3>
+        <span>成都市锦江区梨花街8号<br>名望大厦501</span>
+        <span>营业时间：09:00—19:00</span>
+        <span>预约咨询：19982097343</span>
+        <div class="qr-placeholder">微信二维码<br>图片占位</div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>Copyright © 2026 尔意堂中医馆</span>
+      <span>ICP备案号待补充 · 公安备案号待补充</span>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const header = document.getElementById('siteHeader');
+    const toggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    function updateHeader() {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    }
+
+    toggle.addEventListener('click', () => {
+      const open = body.classList.toggle('menu-open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? '关闭导航' : '打开导航');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        body.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  </script>
 </body>
 </html>
