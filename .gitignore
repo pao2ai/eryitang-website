@@ -15,3 +15,9 @@ node_modules/
 # Exported preview screenshots (not part of the site)
 preview-*.png
 *.preview.png
+
+# Local project history and QA artifacts
+版本备份/
+页面检查/
+tmp-*.png
+项目管理/

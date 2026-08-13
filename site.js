@@ -1,57 +1,53 @@
 const body = document.body;
-const header = document.getElementById("siteHeader");
-const toggle = document.getElementById("menuToggle");
-const navLinks = document.querySelectorAll(".main-nav a");
 
-function updateHeader() {
-  header?.classList.toggle("scrolled", window.scrollY > 18);
+const revealItems = document.querySelectorAll(".reveal");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const pageKey = (() => {
+  if (body.classList.contains("page-brand-v1")) return "brand";
+  if (body.classList.contains("page-contact-v1")) return "contact";
+  if (body.classList.contains("page-article-list-v1")) return "archive";
+  if (body.classList.contains("page-article-detail-v1")) return `article:${body.dataset.articleId || "sample"}`;
+  return "home";
+})();
+const revealStorageKey = `eryitang:reveal-seen:${pageKey}`;
+let revealHasPlayed = false;
+
+try {
+  revealHasPlayed = window.sessionStorage.getItem(revealStorageKey) === "1";
+} catch (error) {
+  revealHasPlayed = false;
 }
 
-toggle?.addEventListener("click", () => {
-  const open = body.classList.toggle("menu-open");
-  toggle.setAttribute("aria-expanded", String(open));
-  toggle.setAttribute("aria-label", open ? "关闭导航" : "打开导航");
-});
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    body.classList.remove("menu-open");
-    toggle?.setAttribute("aria-expanded", "false");
-  });
-});
-
-window.addEventListener("scroll", updateHeader, { passive: true });
-updateHeader();
-
-const categoryLinks = document.querySelectorAll(".category-bar [data-category]");
-const subcategoryLinks = document.getElementById("subcategoryLinks");
-
-const categoryChildren = {
-  all: ["全部文章"],
-  therapies: ["针灸", "艾灸", "推拿", "正骨", "药蒸药浴", "康复治疗"],
-  conditions: ["疼痛调理", "脊柱侧弯", "中风偏瘫", "慢病调理", "男科妇科", "睡眠情绪", "术后康复"],
-  tea: ["三降清脂茶", "清心安眠茶", "葛芝醒酒茶", "祛湿茶", "药食同源"],
-  cases: ["疼痛与脊柱", "中风康复", "慢病调理", "皮肤问题", "术后康复"],
-  news: ["医馆活动", "非遗讲座", "公益交流", "中医文化"]
-};
-
-function updateCategoryNavigation() {
-  if (!categoryLinks.length || !subcategoryLinks) return;
-  const hashCategory = window.location.hash.replace("#", "");
-  const activeCategory = categoryChildren[hashCategory] ? hashCategory : "all";
-
-  categoryLinks.forEach((link) => {
-    link.classList.toggle("active", link.dataset.category === activeCategory);
+if (revealItems.length && !revealHasPlayed && !prefersReducedMotion && "IntersectionObserver" in window) {
+  body.classList.add("motion-ready");
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -8% 0px"
   });
 
-  const childLinks = activeCategory === "all"
-    ? ""
-    : categoryChildren[activeCategory]
-      .map((label) => `<a href="#${activeCategory}">${label}</a>`)
-      .join("");
-
-  subcategoryLinks.innerHTML = `<a class="active" href="${activeCategory === "all" ? "article-list.html" : `#${activeCategory}`}">全部</a>${childLinks}`;
+  revealItems.forEach((item) => revealObserver.observe(item));
+  try {
+    window.sessionStorage.setItem(revealStorageKey, "1");
+  } catch (error) {
+    // Storage may be unavailable in privacy modes; the page remains fully usable.
+  }
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-window.addEventListener("hashchange", updateCategoryNavigation);
-updateCategoryNavigation();
+const articleCategory = document.documentElement.dataset.articleCategory;
+if (articleCategory) {
+  document.querySelectorAll(".category-bar [data-category]").forEach((link) => {
+    if (link.dataset.category === articleCategory) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}

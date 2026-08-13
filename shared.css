@@ -1,0 +1,231 @@
+/* 尔意堂 HTML 演示版公共外壳。页头、页脚与底部广告只在此处维护。 */
+:root {
+  --shared-container: min(100% - 48px, 1240px);
+  --shared-header-height: 88px;
+}
+
+.site-shell-slot { display: contents; }
+/* 页头由公共脚本同步注入；在首帧预留最终高度，避免正文先贴顶再下移。 */
+#siteHeaderSlot.site-shell-slot {
+  display: block;
+  width: 100%;
+  height: calc(36px + 89px);
+}
+.container { width: var(--shared-container); margin-inline: auto; }
+
+.utility-bar {
+  height: 36px;
+  color: rgba(255, 248, 235, .86);
+  background: var(--red-deep, #63201c);
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+.utility-inner {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.utility-meta { display: flex; gap: 32px; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 35;
+  height: 89px;
+  border-bottom: 1px solid transparent;
+  background: rgba(244, 239, 229, .92);
+  backdrop-filter: blur(14px);
+  transition: box-shadow .3s ease, border-color .3s ease, background .3s ease;
+}
+
+.site-header.scrolled {
+  border-color: var(--line);
+  background: rgba(250, 247, 239, .96);
+  box-shadow: 0 10px 36px rgba(46, 36, 25, .08);
+}
+
+.nav-wrap {
+  height: var(--shared-header-height);
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-wrap > .brand { display: inline-flex; align-items: center; }
+.brand-logo { display: block; width: 168px; height: 58px; object-fit: contain; object-position: left center; }
+
+.main-nav { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 2vw, 34px); }
+.main-nav a {
+  position: relative;
+  padding: 31px 0 28px;
+  color: #38342d;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  width: 0;
+  height: 1px;
+  background: var(--red);
+  transform: translateX(-50%);
+  transition: width .25s ease;
+}
+.main-nav a:hover,
+.main-nav a.active { color: var(--red); }
+.main-nav a:hover::after,
+.main-nav a.active::after { width: 22px; }
+
+.phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+.phone-link::before {
+  content: "";
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  background: url("assets/images/home-v3/icon-tel.svg") center / contain no-repeat;
+}
+.phone-desktop { cursor: default; user-select: text; }
+.phone-mobile { display: none; }
+
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+}
+.menu-toggle span { display: block; width: 22px; height: 1px; margin: 5px 0; background: currentColor; transition: transform .25s ease, opacity .25s ease; }
+
+.site-footer { color: rgba(255, 255, 255, .7); background: #211b17; }
+.site-footer .footer-main {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr .8fr 1fr;
+  gap: 60px;
+  align-items: start;
+  padding: 76px 0 60px;
+}
+.footer-logo { display: block; width: 150px; height: auto; object-fit: contain; object-position: left center; }
+.footer-brand p { max-width: 390px; margin: 26px 0 0; color: rgba(255,255,255,.46); font-size: 13px; line-height: 2; }
+.footer-column { display: flex; flex-direction: column; gap: 12px; font-family: var(--sans); font-size: 13px; line-height: 1.75; }
+.footer-column h3 { margin: 0 0 12px; color: rgba(255,255,255,.88); font-family: var(--serif); font-size: 17px; font-weight: 500; letter-spacing: .08em; }
+.has-shared-shell.page-brand-v1 .site-footer .footer-column h3 { font-size: 17px; }
+.has-shared-shell.page-brand-v1 .site-footer .footer-column a,
+.has-shared-shell.page-brand-v1 .site-footer .footer-column span { font-size: 13px; }
+.footer-column a { color: rgba(255,255,255,.58); transition: color .22s ease; }
+.footer-column a:hover { color: #fff8eb; }
+.qr-placeholder { width: 118px; margin-top: 8px; background: #fff; }
+.qr-placeholder img { display: block; width: 100%; height: auto; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 24px; padding: 22px 0 28px; border-top: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.34); font-family: var(--sans); font-size: 11px; }
+
+.shared-footer-ad {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(rgba(41,38,31,.2), rgba(41,38,31,.2)), url("assets/images/home-v6/bg-footer-ad-02.png") center / cover no-repeat;
+}
+.shared-footer-ad::before { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(255,255,255,.2); }
+
+@media (max-width: 1160px) {
+  :root { --shared-container: min(100% - 48px, 1100px); }
+  .nav-wrap { grid-template-columns: 200px 1fr auto; gap: 18px; }
+  .main-nav { gap: 15px; }
+  .main-nav a { font-size: 12px; }
+}
+
+@media (max-width: 920px) {
+  :root { --shared-container: min(100% - 40px, 760px); --shared-header-height: 74px; }
+  #siteHeaderSlot.site-shell-slot { height: calc(36px + 75px); }
+  .site-header { height: 75px; }
+  .nav-wrap { height: 74px; grid-template-columns: 1fr auto auto; }
+  .brand-logo { width: 142px; height: 52px; }
+  .menu-toggle { display: block; }
+  .main-nav {
+    position: fixed;
+    inset: calc(36px + var(--shared-header-height)) 0 0;
+    width: 100%;
+    height: calc(100vh - 36px - var(--shared-header-height));
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 35px 28px;
+    background: var(--paper-light);
+    transform: translateX(100%);
+    transition: transform .35s ease;
+  }
+  .menu-open .main-nav { transform: translateX(0); }
+  .main-nav a { padding: 17px 8px; border-bottom: 1px solid var(--line); font-family: var(--sans); font-size: 16px; }
+  .main-nav a::after { display: none; }
+  .phone-desktop { display: none; }
+  .phone-mobile { display: inline-flex; }
+  .menu-open .menu-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+  .menu-open .menu-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .site-footer .footer-main { grid-template-columns: repeat(2, 1fr); gap: 44px; }
+}
+
+@media (max-width: 760px) { .shared-footer-ad { min-height: 150px; } }
+
+@media (max-width: 620px) {
+  :root { --shared-container: calc(100% - 28px); }
+  #siteHeaderSlot.site-shell-slot { height: 75px; }
+  .utility-bar { display: none; }
+  .brand-logo { width: 126px; height: 46px; }
+  .main-nav { inset: var(--shared-header-height) 0 0; height: calc(100vh - var(--shared-header-height)); }
+  .phone-mobile { gap: 5px; font-size: 13px; }
+  .phone-mobile::before { display: none; }
+  .site-footer .footer-main { grid-template-columns: 1fr; gap: 36px; padding: 56px 0 42px; }
+  .footer-bottom { flex-direction: column; }
+}
+
+/* 公共外壳最终权威层：覆盖历史页面级页头页脚声明。 */
+body.has-shared-shell .brand-logo { width: 168px !important; height: 58px !important; }
+body.has-shared-shell .site-footer .footer-main {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr .8fr 1fr;
+  gap: 60px;
+  align-items: start;
+  padding: 76px 0 60px;
+}
+body.has-shared-shell .footer-logo { width: 150px !important; height: auto !important; }
+body.has-shared-shell .qr-placeholder { width: 118px !important; height: auto !important; }
+body.has-shared-shell .qr-placeholder img { width: 100% !important; height: auto !important; aspect-ratio: auto !important; object-fit: contain !important; }
+body.has-shared-shell .footer-bottom { display: flex; padding: 22px 0 28px; }
+
+@media (max-width: 920px) {
+  body.has-shared-shell .brand-logo { width: 142px !important; height: 52px !important; }
+  body.has-shared-shell .site-footer .footer-main { grid-template-columns: repeat(2, 1fr); gap: 44px; }
+}
+
+@media (max-width: 620px) {
+  body.has-shared-shell .brand-logo { width: 126px !important; height: 46px !important; }
+  body.has-shared-shell .site-footer .footer-main { grid-template-columns: 1fr; gap: 36px; padding: 56px 0 42px; }
+  body.has-shared-shell .footer-bottom { flex-direction: column; }
+}
