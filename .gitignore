@@ -1,23 +1,33 @@
-# OS files
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+wp-config.php
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Runtime and generated data
+site/wp-content/cache/
+site/wp-content/upgrade/
+site/wp-content/backups*/
+site/wp-content/ai1wm-backups/
+*.log
+*.tmp
+*.bak
+*.swp
 .DS_Store
 Thumbs.db
-
-# Editor
-.vscode/
 .idea/
+.vscode/
 
-# Node
-node_modules/
+# Local restore outputs
+.restore-work/
+*.tar
+*.tar.gz
+*.zip
+*.sql.gz
 
-# Local dev
-.workbuddy/
-
-# Exported preview screenshots (not part of the site)
-preview-*.png
-*.preview.png
-
-# Local project history and QA artifacts
-版本备份/
-页面检查/
-tmp-*.png
-项目管理/

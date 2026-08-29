@@ -1,0 +1,1156 @@
+.eryitang-home {
+  --home-serif: "Noto Serif SC", "Songti SC", STSong, serif;
+  --home-sans: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  overflow: clip;
+}
+
+.eryitang-home > .wp-block-shortcode,
+.eryitang-home > .wp-block-template-part,
+.eryitang-home .wp-block-template-part {
+  margin: 0;
+}
+
+.eryitang-home-section {
+  padding-block: clamp(78px, 8vw, 118px);
+}
+
+.eryitang-home-eyebrow,
+.eryitang-home-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  color: var(--eryitang-red);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eryitang-home-eyebrow::before,
+.eryitang-home-kicker::before {
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.eryitang-home-section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 42px;
+  margin-bottom: 48px;
+}
+
+.eryitang-home-section-head h2,
+.eryitang-home-heritage__copy h2,
+.eryitang-home-conditions__heading h2 {
+  margin: 16px 0 13px;
+  font-family: var(--home-serif);
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+}
+
+.eryitang-home-section-head > div > p:last-child,
+.eryitang-home-conditions__heading > p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--eryitang-muted);
+  line-height: 1.9;
+}
+
+.eryitang-home-button {
+  position: relative;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border: 1px solid var(--eryitang-red);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.eryitang-home-button:hover {
+  transform: translateY(-2px);
+}
+
+.eryitang-home-button--primary {
+  background: var(--eryitang-red);
+  color: #fff;
+}
+
+.eryitang-home-button--outline {
+  background: transparent;
+  color: var(--eryitang-red-deep);
+}
+
+.eryitang-home-button--outline:hover {
+  background: var(--eryitang-red);
+  color: #fff;
+}
+
+.eryitang-home-placeholder {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 46%),
+    var(--eryitang-moss);
+}
+
+.eryitang-home-placeholder > span {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+}
+
+.eryitang-home-banner {
+  position: relative;
+  min-height: clamp(610px, 76vh, 780px);
+  overflow: hidden;
+  background: #555b52;
+  color: #fff;
+}
+
+.eryitang-home-banner__image,
+.eryitang-home-banner__placeholder,
+.eryitang-home-banner__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.eryitang-home-banner__image {
+  object-fit: cover;
+}
+
+.eryitang-home-banner__placeholder {
+  background:
+    linear-gradient(118deg, rgba(65, 71, 62, 0.98), rgba(103, 107, 94, 0.84)),
+    var(--eryitang-moss);
+}
+
+.eryitang-home-banner__placeholder::after {
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  content: "";
+}
+
+.eryitang-home-banner__shade {
+  background:
+    linear-gradient(90deg, rgba(25, 28, 24, 0.58), rgba(25, 28, 24, 0.1) 64%),
+    linear-gradient(0deg, rgba(20, 20, 17, 0.32), transparent 38%);
+}
+
+.eryitang-home-banner__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: clamp(610px, 76vh, 780px);
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 60px;
+  padding-bottom: clamp(82px, 10vh, 112px);
+}
+
+.eryitang-home-banner__copy {
+  max-width: 850px;
+}
+
+.eryitang-home-banner .eryitang-home-eyebrow {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.eryitang-home-banner__copy h1 {
+  margin: 20px 0 12px;
+  font-family: var(--home-serif);
+  font-size: clamp(3.4rem, 6.2vw, 5.6rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.eryitang-home-banner__copy > p:last-child {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  letter-spacing: 0.08em;
+}
+
+.eryitang-home-banner__note {
+  display: grid;
+  min-width: 270px;
+  gap: 5px;
+  padding: 22px 0 0 28px;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.68rem;
+}
+
+.eryitang-home-banner__note strong {
+  color: rgba(255, 255, 255, 0.84);
+  font-family: var(--home-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.eryitang-home-banner__scroll {
+  position: absolute;
+  z-index: 3;
+  bottom: 24px;
+  left: 50%;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.eryitang-home-banner__scroll-wrap {
+  margin: 0;
+}
+
+.eryitang-home-banner__scroll::after {
+  display: block;
+  width: 1px;
+  height: 28px;
+  margin: 10px auto 0;
+  background: rgba(255, 255, 255, 0.45);
+  content: "";
+}
+
+.eryitang-home-intro {
+  position: relative;
+  padding-block: clamp(88px, 9vw, 130px);
+  background:
+    linear-gradient(rgba(143, 45, 37, 0.018) 1px, transparent 1px),
+    var(--eryitang-paper);
+  background-size: 100% 4px;
+}
+
+.eryitang-home-intro__inner {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(70px, 8vw, 120px);
+  align-items: center;
+}
+
+.eryitang-home-intro__copy h2 {
+  margin: 22px 0 22px;
+  font-family: var(--home-serif);
+  font-size: clamp(2.7rem, 5vw, 4.7rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.32;
+}
+
+.eryitang-home-intro__copy h2 span {
+  color: var(--eryitang-red);
+}
+
+.eryitang-home-intro__lead {
+  max-width: 570px;
+  margin: 0;
+  color: var(--eryitang-muted);
+  line-height: 2;
+}
+
+.eryitang-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.eryitang-home-intro__visual {
+  position: relative;
+  min-height: 490px;
+}
+
+.eryitang-home-intro__image {
+  position: absolute;
+  inset: 0 0 40px 40px;
+}
+
+.eryitang-home-intro__image::after {
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  content: "";
+}
+
+.eryitang-home-intro__red {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  width: 170px;
+  min-height: 165px;
+  place-items: center;
+  padding: 22px;
+  background: var(--eryitang-red);
+  color: #fff;
+  font-family: var(--home-serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  line-height: 1.75;
+}
+
+.eryitang-home-intro__stamp {
+  position: absolute;
+  top: 34px;
+  right: -14px;
+  padding: 13px 16px;
+  border: 1px solid var(--eryitang-red);
+  background: var(--eryitang-paper-light);
+  color: var(--eryitang-red);
+  font-family: var(--home-serif);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  text-align: center;
+  transform: rotate(5deg);
+}
+
+.eryitang-home-heritage {
+  position: relative;
+  background: var(--eryitang-paper-light);
+}
+
+.eryitang-home-heritage::before {
+  position: absolute;
+  inset: 0 0 0 50%;
+  border-left: 1px solid rgba(217, 208, 193, 0.42);
+  content: "";
+}
+
+.eryitang-home-heritage__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(70px, 8vw, 118px);
+  align-items: center;
+}
+
+.eryitang-home-heritage__visual {
+  position: relative;
+  min-height: 480px;
+}
+
+.eryitang-home-heritage__image {
+  position: absolute;
+  inset: 0 54px 54px 0;
+}
+
+.eryitang-home-heritage__cert {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(250px, 62%);
+  padding: 28px 26px;
+  border: 1px solid var(--eryitang-line);
+  background: var(--eryitang-paper);
+  box-shadow: 0 20px 55px rgba(44, 36, 26, 0.08);
+}
+
+.eryitang-home-heritage__cert small {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--eryitang-red);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.eryitang-home-heritage__cert strong {
+  font-family: var(--home-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.eryitang-home-heritage__copy > p:not(.eryitang-home-kicker) {
+  margin: 0;
+  color: var(--eryitang-muted);
+  line-height: 2;
+}
+
+.eryitang-home-heritage__points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 30px;
+  border-top: 1px solid var(--eryitang-line);
+  border-left: 1px solid var(--eryitang-line);
+}
+
+.eryitang-home-heritage__points div {
+  min-height: 112px;
+  padding: 21px;
+  border-right: 1px solid var(--eryitang-line);
+  border-bottom: 1px solid var(--eryitang-line);
+}
+
+.eryitang-home-heritage__points span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--eryitang-red);
+  font-size: 0.63rem;
+  letter-spacing: 0.12em;
+}
+
+.eryitang-home-heritage__points strong {
+  font-family: var(--home-serif);
+  font-size: 0.94rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.eryitang-home-doctors {
+  position: relative;
+  background: var(--eryitang-red-deep);
+  color: #fff;
+}
+
+.eryitang-home-doctors::after {
+  position: absolute;
+  top: -42px;
+  right: -22px;
+  color: rgba(255, 255, 255, 0.035);
+  content: "医";
+  font-family: var(--home-serif);
+  font-size: 19rem;
+  line-height: 1;
+}
+
+.eryitang-home-doctors .eryitang-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.eryitang-home-doctors .eryitang-home-kicker,
+.eryitang-home-doctors .eryitang-home-section-head > div > p:last-child {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.eryitang-home-doctor-carousel {
+  position: relative;
+}
+
+.eryitang-home-doctor-viewport {
+  overflow: hidden;
+}
+
+.eryitang-home-doctor-grid {
+  display: flex;
+  gap: 24px;
+  transition: transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.eryitang-home-doctor-card {
+  flex: 0 0 calc((100% - 122px) / 3);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.035);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 220ms ease, background 220ms ease;
+}
+
+a.eryitang-home-doctor-card[href] {
+  cursor: pointer;
+}
+
+a.eryitang-home-doctor-card[href]:hover,
+a.eryitang-home-doctor-card[href]:focus-visible {
+  background: rgba(255, 255, 255, 0.065);
+  transform: translateY(-5px);
+}
+
+a.eryitang-home-doctor-card[href]:focus-visible {
+  outline: 1px solid rgba(235, 205, 163, 0.88);
+  outline-offset: 4px;
+}
+
+.eryitang-home-doctor-photo {
+  display: block;
+  width: 100%;
+  min-height: 330px;
+  max-height: 390px;
+  object-fit: cover;
+}
+
+.eryitang-home-doctor-info {
+  position: relative;
+  min-height: 190px;
+  padding: 24px 24px 27px;
+}
+
+.eryitang-home-doctor-index {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+  color: rgba(255, 255, 255, 0.28);
+  font-family: var(--home-serif);
+  font-size: 1rem;
+}
+
+.eryitang-home-doctor-info h3 {
+  margin: 0 48px 11px 0;
+  font-family: var(--home-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.eryitang-home-doctor-info p {
+  margin: 0 0 15px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.78rem;
+  line-height: 1.85;
+}
+
+.eryitang-home-doctor-info small {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.66rem;
+}
+
+.eryitang-home-doctor-info .eryitang-home-doctor-meta {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.eryitang-home-doctor-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.eryitang-home-doctor-controls[hidden] {
+  display: none;
+}
+
+.eryitang-home-doctor-controls button {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: #eadbca;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.035);
+  cursor: pointer;
+  transition: background 220ms ease, transform 220ms ease, opacity 220ms ease;
+}
+
+.eryitang-home-doctor-controls button:hover:not(:disabled),
+.eryitang-home-doctor-controls button:focus-visible:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.eryitang-home-doctor-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.eryitang-home-therapies {
+  background: var(--eryitang-paper-light);
+}
+
+.eryitang-home-therapy-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--eryitang-line);
+  border-left: 1px solid var(--eryitang-line);
+}
+
+.eryitang-home-therapy {
+  position: relative;
+  min-height: 270px;
+  overflow: hidden;
+  padding: 30px 27px;
+  border-right: 1px solid var(--eryitang-line);
+  border-bottom: 1px solid var(--eryitang-line);
+  background: rgba(246, 241, 231, 0.48);
+  color: inherit;
+  text-decoration: none;
+  transition: color 220ms ease, background 220ms ease;
+}
+
+a.eryitang-home-therapy[href] {
+  cursor: pointer;
+}
+
+.eryitang-home-therapy::before {
+  position: absolute;
+  right: -12px;
+  bottom: -30px;
+  color: rgba(143, 45, 37, 0.045);
+  content: "方";
+  font-family: var(--home-serif);
+  font-size: 8rem;
+  line-height: 1;
+}
+
+a.eryitang-home-therapy[href]:hover,
+a.eryitang-home-therapy[href]:focus-visible {
+  background: var(--eryitang-red);
+  color: #fff;
+}
+
+a.eryitang-home-therapy[href]:focus-visible {
+  outline: 2px solid rgba(143, 45, 37, 0.48);
+  outline-offset: 3px;
+}
+
+.eryitang-home-therapy > span {
+  color: var(--eryitang-red);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+a.eryitang-home-therapy[href]:hover > span,
+a.eryitang-home-therapy[href]:hover p,
+a.eryitang-home-therapy[href]:focus-visible > span,
+a.eryitang-home-therapy[href]:focus-visible p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.eryitang-home-therapy h3 {
+  margin: 34px 0 14px;
+  font-family: var(--home-serif);
+  font-size: 1.28rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.eryitang-home-therapy p {
+  margin: 0;
+  color: var(--eryitang-muted);
+  font-size: 0.78rem;
+  line-height: 1.85;
+}
+
+.eryitang-home-therapy i {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  width: 28px;
+  height: 1px;
+  background: var(--eryitang-red);
+}
+
+a.eryitang-home-therapy[href]:hover i,
+a.eryitang-home-therapy[href]:focus-visible i {
+  background: #fff;
+}
+
+.eryitang-home-conditions {
+  background: #707465;
+  color: #fff;
+}
+
+.eryitang-home-conditions__layout {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: clamp(60px, 7vw, 96px);
+  align-items: start;
+}
+
+.eryitang-home-conditions .eryitang-home-kicker,
+.eryitang-home-conditions__heading > p {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.eryitang-home-conditions__heading .eryitang-home-button {
+  margin-top: 28px;
+  color: #fff8ed;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.eryitang-home-conditions__heading .eryitang-home-button:hover,
+.eryitang-home-conditions__heading .eryitang-home-button:focus-visible {
+  color: var(--eryitang-red-deep);
+  background: #fff8ed;
+  border-color: #fff8ed;
+}
+
+.eryitang-home-condition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.eryitang-home-condition {
+  min-height: 185px;
+  padding: 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background 200ms ease;
+}
+
+.eryitang-home-condition:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.eryitang-home-condition > span {
+  color: rgba(255, 255, 255, 0.42);
+  font-family: var(--home-serif);
+  font-size: 0.82rem;
+}
+
+.eryitang-home-condition h3 {
+  margin: 24px 0 8px;
+  font-family: var(--home-serif);
+  font-size: 1.16rem;
+  font-weight: 400;
+}
+
+.eryitang-home-condition p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.74rem;
+  line-height: 1.75;
+}
+
+.eryitang-home-news {
+  background: var(--eryitang-paper);
+}
+
+.eryitang-home-news-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 42px;
+}
+
+.eryitang-home-news-feature-wrap {
+  min-width: 0;
+}
+
+.eryitang-home-news-feature {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  min-height: 430px;
+  background: var(--eryitang-red-deep);
+  color: #fff;
+  text-decoration: none;
+}
+
+.eryitang-home-news-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+
+.eryitang-home-news-feature-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px;
+}
+
+.eryitang-home-news-meta {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+}
+
+.eryitang-home-news-feature-title,
+.eryitang-home-news-empty h3 {
+  display: block;
+  margin: 18px 0 14px;
+  font-family: var(--home-serif);
+  font-size: clamp(1.45rem, 2.5vw, 2.15rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.55;
+}
+
+.eryitang-home-news-feature-desc,
+.eryitang-home-news-empty p {
+  display: block;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.78rem;
+  line-height: 1.9;
+}
+
+.eryitang-home-text-link {
+  margin-top: 26px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.eryitang-home-news-list {
+  border-top: 1px solid var(--eryitang-line);
+}
+
+.eryitang-home-news-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 20px;
+  min-height: 25%;
+  align-items: center;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--eryitang-line);
+  color: var(--eryitang-ink);
+  text-decoration: none;
+}
+
+.eryitang-home-news-date {
+  color: var(--eryitang-red);
+  font-family: var(--home-serif);
+  font-size: 1.35rem;
+}
+
+.eryitang-home-news-date small {
+  display: block;
+  margin-top: 5px;
+  color: #8a8479;
+  font-family: var(--home-sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+}
+
+.eryitang-home-news-row-copy {
+  display: block;
+}
+
+.eryitang-home-news-row-copy > strong {
+  display: block;
+  margin: 0 0 6px;
+  font-family: var(--home-serif);
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.eryitang-home-news-row-copy > span {
+  display: block;
+  margin: 0;
+  color: var(--eryitang-muted);
+  font-size: 0.7rem;
+  line-height: 1.65;
+}
+
+.eryitang-home-news-empty {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 360px;
+  background: var(--eryitang-red-deep);
+  color: #fff;
+}
+
+.eryitang-home-news-empty > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(30px, 5vw, 62px);
+}
+
+.motion-ready .eryitang-home-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-ready .eryitang-home-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1050px) {
+  .eryitang-home-intro__inner,
+  .eryitang-home-heritage__grid,
+  .eryitang-home-conditions__layout {
+    gap: 54px;
+  }
+
+  .eryitang-home-doctor-grid {
+    gap: 18px;
+  }
+
+  .eryitang-home-doctor-card {
+    flex-basis: calc((100% - 18px) / 2);
+  }
+
+  .eryitang-home-doctor-photo {
+    min-height: 280px;
+  }
+
+  .eryitang-home-therapy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eryitang-home-news-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 781px) {
+  .eryitang-home-section {
+    padding-block: 74px;
+  }
+
+  .eryitang-home-section-head {
+    display: block;
+    margin-bottom: 34px;
+  }
+
+  .eryitang-home-section-head .eryitang-home-button {
+    margin-top: 22px;
+  }
+
+  .eryitang-home-banner,
+  .eryitang-home-banner__inner {
+    min-height: 590px;
+  }
+
+  .eryitang-home-banner__inner {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 78px;
+  }
+
+  .eryitang-home-banner__copy h1 {
+    font-size: clamp(3rem, 15vw, 4.25rem);
+    letter-spacing: 0.06em;
+  }
+
+  .eryitang-home-banner__note {
+    display: none;
+  }
+
+  .eryitang-home-intro__inner,
+  .eryitang-home-heritage__grid,
+  .eryitang-home-conditions__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .eryitang-home-intro__visual {
+    min-height: 420px;
+  }
+
+  .eryitang-home-heritage::before {
+    display: none;
+  }
+
+  .eryitang-home-heritage__visual {
+    min-height: 420px;
+  }
+
+  .eryitang-home-doctor-grid {
+    gap: 18px;
+  }
+
+  .eryitang-home-doctor-card {
+    flex-basis: 100%;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .eryitang-home-doctor-photo {
+    height: 100%;
+    min-height: 250px;
+  }
+
+  .eryitang-home-condition-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eryitang-home-news-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .eryitang-home-news-image {
+    min-height: 280px;
+  }
+
+  .eryitang-home-news-empty {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .eryitang-home-intro__copy h2 {
+    font-size: 2.6rem;
+  }
+
+  .eryitang-home-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .eryitang-home-button {
+    padding-inline: 14px;
+  }
+
+  .eryitang-home-intro__visual,
+  .eryitang-home-heritage__visual {
+    min-height: 350px;
+  }
+
+  .eryitang-home-intro__image {
+    inset: 0 0 32px 26px;
+  }
+
+  .eryitang-home-intro__red {
+    width: 145px;
+    min-height: 135px;
+    font-size: 0.9rem;
+  }
+
+  .eryitang-home-heritage__image {
+    inset: 0 35px 42px 0;
+  }
+
+  .eryitang-home-heritage__cert {
+    padding: 20px;
+  }
+
+  .eryitang-home-heritage__points {
+    grid-template-columns: 1fr;
+  }
+
+  .eryitang-home-doctor-card {
+    display: block;
+  }
+
+  .eryitang-home-doctor-photo {
+    min-height: 310px;
+  }
+
+  .eryitang-home-therapy-grid,
+  .eryitang-home-condition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eryitang-home-therapy {
+    min-height: 230px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .eryitang-home-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* 与静态定稿一致的图片卡片与章节背景。 */
+.eryitang-home-intro {
+  background: url("../images/home-v6/bg-hero-beige-mountain.png") center / cover no-repeat;
+}
+
+.eryitang-home-intro__image {
+  background: url("../images/home-v4/hero-courtyard.png") center / cover no-repeat;
+}
+
+.eryitang-home-intro__image > span,
+.eryitang-home-heritage__image > span {
+  display: none;
+}
+
+.eryitang-home-heritage__image {
+  background: url("../images/home-v4/heritage-certificate.jpeg") center / cover no-repeat;
+}
+
+.eryitang-home-doctors {
+  background: #7b211d url("../images/home-v6/bg-doctors-red-cloud.png") center / cover no-repeat;
+}
+
+.eryitang-home-therapies {
+  background: #f6f0e4 url("../images/home-v6/bg-therapies-beige-crane.png") center / cover no-repeat;
+}
+
+.eryitang-home-conditions {
+  background: #eee8dc url("../images/home-v6/bg-conditions-01.png") center / cover no-repeat;
+  color: var(--eryitang-ink);
+}
+
+.eryitang-home-therapy-grid {
+  gap: 12px;
+  border: 0;
+}
+
+.eryitang-home-therapy {
+  min-height: 190px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--eryitang-radius-media);
+  background: #595853;
+}
+
+.eryitang-home-therapy::before {
+  display: none;
+}
+
+.eryitang-home-therapy img,
+.eryitang-home-therapy__shade {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.eryitang-home-therapy img {
+  object-fit: cover;
+  transition: transform 420ms ease;
+}
+
+.eryitang-home-therapy__shade {
+  background: linear-gradient(180deg, transparent 45%, rgba(22, 17, 14, 0.76));
+}
+
+.eryitang-home-therapy h3 {
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  bottom: 18px;
+  margin: 0;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+a.eryitang-home-therapy[href]:hover,
+a.eryitang-home-therapy[href]:focus-visible {
+  color: #fff;
+  background: #595853;
+}
+
+a.eryitang-home-therapy[href]:hover img,
+a.eryitang-home-therapy[href]:focus-visible img {
+  transform: scale(1.045);
+}
+
+@media (max-width: 620px) {
+  .eryitang-home-therapy-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .eryitang-home-therapy {
+    min-height: 126px;
+  }
+
+  .eryitang-home-therapy h3 {
+    left: 14px;
+    bottom: 12px;
+    font-size: 0.92rem;
+  }
+}

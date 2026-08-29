@@ -1,0 +1,53 @@
+<!-- wp:shortcode -->
+[eryitang_archive_intro]
+<!-- /wp:shortcode -->
+
+<!-- wp:group {"tagName":"section","className":"section archive-section","layout":{"type":"default"}} -->
+<section class="wp-block-group section archive-section">
+	<!-- wp:group {"className":"container archive-shell","layout":{"type":"default"}} -->
+	<div class="wp-block-group container archive-shell">
+		<!-- wp:group {"className":"archive-main","layout":{"type":"default"}} -->
+		<div class="wp-block-group archive-main">
+			<!-- wp:shortcode -->[eryitang_category_filter]<!-- /wp:shortcode -->
+			<!-- wp:query {"inherit":true,"className":"article-query"} -->
+			<div class="wp-block-query article-query">
+				<!-- wp:post-template {"className":"article-list"} -->
+					<!-- wp:group {"tagName":"article","className":"article-card reveal","layout":{"type":"default"}} -->
+					<article class="wp-block-group article-card reveal">
+						<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"article-thumb"} /-->
+						<!-- wp:group {"className":"article-content","layout":{"type":"default"}} -->
+						<div class="wp-block-group article-content">
+							<!-- wp:post-terms {"term":"category","className":"article-meta"} /-->
+							<!-- wp:post-title {"isLink":true,"level":2} /-->
+							<!-- wp:post-excerpt {"moreText":"","excerptLength":42} /-->
+							<!-- wp:post-date {"format":"Y.m.d","className":"date"} /-->
+						</div>
+						<!-- /wp:group -->
+					</article>
+					<!-- /wp:group -->
+				<!-- /wp:post-template -->
+				<!-- wp:query-no-results -->
+					<!-- wp:html -->
+					<div class="article-list article-list--placeholder" aria-label="文章内容占位">
+						<article class="article-card reveal"><figure class="article-thumb"><img src="/wp-content/themes/eryitang/assets/images/article-list-v1/cover-news-class.jpg" alt="尔意堂小小中医班户外教学现场" loading="lazy"></figure><div class="article-content"><span class="article-meta">医馆资讯</span><h2>小小中医班首课圆满礼成：让岐黄薪火从童蒙延续</h2><p>稚子启蒙，初窥岐黄之道。通过拍八虚、识五脏等体验，让传统中医文化以可亲近的方式走进孩子们的日常。</p><time class="date">2026.07.24</time></div></article>
+						<article class="article-card reveal delay-1"><figure class="article-thumb"><img src="/wp-content/themes/eryitang/assets/images/article-list-v1/cover-news-heritage.jpg" alt="尔意堂中医文化传承交流活动现场" loading="lazy"></figure><div class="article-content"><span class="article-meta">医馆资讯</span><h2>银针承古：尔意堂董氏奇穴非遗讲座开放报名</h2><p>讲机理、述原理、传技法、重实操，让中医同道亲见董氏奇穴取穴精简、以简驭繁的技法特点。</p><time class="date">2026.07.18</time></div></article>
+						<article class="article-card reveal"><figure class="article-thumb"><img src="/wp-content/themes/eryitang/assets/images/article-list-v1/cover-therapy-acupuncture.jpg" alt="董氏奇穴针灸取穴调理实拍" loading="lazy"></figure><div class="article-content"><span class="article-meta">特色疗法</span><h2>董氏奇穴针灸：从精准取穴理解传统针法</h2><p>董氏奇穴以取穴精简、位置独特见长，从医馆实际诊疗逻辑出发，介绍针灸前为何需要先辨证、再选穴。</p><time class="date">2026.07.09</time></div></article>
+					</div>
+					<!-- /wp:html -->
+				<!-- /wp:query-no-results -->
+				<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"left"},"className":"pagination"} --><!-- wp:query-pagination-previous {"label":"上一页"} /--><!-- wp:query-pagination-numbers /--><!-- wp:query-pagination-next {"label":"下一页"} /--><!-- /wp:query-pagination -->
+			</div>
+			<!-- /wp:query -->
+		</div>
+		<!-- /wp:group -->
+		<!-- wp:group {"tagName":"aside","className":"sidebar","layout":{"type":"default"}} -->
+		<aside class="wp-block-group sidebar">
+			<!-- wp:shortcode -->[eryitang_recommended_posts]<!-- /wp:shortcode -->
+			<!-- wp:shortcode -->[eryitang_ad_slot slot="1"]<!-- /wp:shortcode -->
+			<!-- wp:shortcode -->[eryitang_ad_slot slot="2"]<!-- /wp:shortcode -->
+		</aside>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</section>
+<!-- /wp:group -->

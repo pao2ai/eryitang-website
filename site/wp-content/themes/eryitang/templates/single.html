@@ -1,0 +1,46 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"eryitang-main","layout":{"type":"default"}} -->
+<main class="wp-block-group eryitang-main">
+	<!-- wp:group {"tagName":"header","className":"article-hero","layout":{"type":"default"}} -->
+	<header class="wp-block-group article-hero">
+		<!-- wp:group {"className":"container article-hero-inner reveal","layout":{"type":"default"}} -->
+		<div class="wp-block-group container article-hero-inner reveal">
+			<!-- wp:paragraph {"className":"breadcrumb"} --><p class="breadcrumb"><a href="/">首页</a><span>/</span><a href="/articles/">文章资讯</a><span>/</span><span>正文</span></p><!-- /wp:paragraph -->
+			<!-- wp:post-terms {"term":"category","className":"article-category"} /-->
+			<!-- wp:post-title {"level":1} /-->
+			<!-- wp:group {"className":"article-byline","layout":{"type":"default"}} -->
+			<div class="wp-block-group article-byline"><!-- wp:post-date {"format":"Y.m.d"} /--></div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+	</header>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"tagName":"section","className":"section article-reading-section","layout":{"type":"default"}} -->
+	<section class="wp-block-group section article-reading-section">
+		<!-- wp:group {"className":"container article-layout","layout":{"type":"default"}} -->
+		<div class="wp-block-group container article-layout">
+			<!-- wp:group {"tagName":"article","className":"article-body","layout":{"type":"default"}} -->
+			<article class="wp-block-group article-body">
+				<!-- wp:post-featured-image {"className":"article-cover reveal"} /-->
+				<!-- wp:post-content /-->
+				<!-- wp:shortcode -->[eryitang_related_posts]<!-- /wp:shortcode -->
+				<!-- wp:shortcode -->[eryitang_post_navigation]<!-- /wp:shortcode -->
+			</article>
+			<!-- /wp:group -->
+			<!-- wp:group {"tagName":"aside","className":"sidebar","layout":{"type":"default"}} -->
+			<aside class="wp-block-group sidebar">
+				<!-- wp:shortcode -->[eryitang_recommended_posts]<!-- /wp:shortcode -->
+				<!-- wp:shortcode -->[eryitang_ad_slot slot="1"]<!-- /wp:shortcode -->
+				<!-- wp:shortcode -->[eryitang_ad_slot slot="2"]<!-- /wp:shortcode -->
+			</aside>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+	</section>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

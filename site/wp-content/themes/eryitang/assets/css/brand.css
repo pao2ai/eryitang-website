@@ -1,0 +1,653 @@
+.eryitang-brand {
+  --brand-paper: #f4efe5;
+  --brand-paper-light: #fbf8f1;
+  --brand-ink: #211e19;
+  --brand-muted: #625d54;
+  --brand-red: #872a24;
+  --brand-red-deep: #63201c;
+  --brand-moss: #666b5d;
+  --brand-gold: #aa8d5e;
+  --brand-line: #d9d0c1;
+  --brand-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, SimSun, serif;
+  --brand-sans: "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  overflow: clip;
+  background:
+    linear-gradient(rgba(135, 42, 36, 0.018) 1px, transparent 1px),
+    var(--brand-paper);
+  background-size: 100% 4px;
+  color: var(--brand-ink);
+}
+
+.eryitang-brand > .wp-block-template-part,
+.eryitang-brand > section {
+  margin-block-start: 0;
+}
+
+.eryitang-brand a:focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 4px;
+}
+
+.eryitang-brand-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: var(--brand-red);
+  font: 600 0.68rem/1 var(--brand-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.eryitang-brand-kicker::before {
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.eryitang-brand-placeholder {
+  position: relative;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.64);
+  background:
+    linear-gradient(135deg, transparent 42%, rgba(255, 255, 255, 0.07)),
+    var(--brand-moss);
+}
+
+.eryitang-brand-placeholder::before {
+  position: absolute;
+  inset: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  content: "";
+}
+
+.eryitang-brand-placeholder > span {
+  position: absolute;
+  bottom: 22px;
+  left: 26px;
+  z-index: 1;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+}
+
+.eryitang-brand-section {
+  padding-block: clamp(84px, 8vw, 116px);
+}
+
+.eryitang-brand-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(36px, 7vw, 92px);
+  margin-bottom: clamp(42px, 5vw, 62px);
+}
+
+.eryitang-brand-section-head h2 {
+  margin: 18px 0 0;
+  font: 400 clamp(2rem, 3.6vw, 3.25rem)/1.45 var(--brand-serif);
+  letter-spacing: 0.08em;
+}
+
+.eryitang-brand-section-head > p {
+  width: min(100%, 470px);
+  margin: 0;
+  color: var(--brand-muted);
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+.eryitang-brand-hero {
+  position: relative;
+  display: grid;
+  min-height: 520px;
+  overflow: hidden;
+  align-items: center;
+  border-bottom: 1px solid var(--brand-line);
+  background:
+    linear-gradient(90deg, rgba(244, 239, 229, 0.99) 0 46%, rgba(244, 239, 229, 0.8) 68%, rgba(244, 239, 229, 0.14)),
+    linear-gradient(135deg, #8a8b7d, #62675d);
+}
+
+.eryitang-brand-hero::after {
+  position: absolute;
+  right: -1vw;
+  bottom: -86px;
+  color: rgba(255, 255, 255, 0.09);
+  font: 700 clamp(8rem, 13vw, 12rem)/1 var(--brand-serif);
+  letter-spacing: 0.08em;
+  content: "尔意堂";
+}
+
+.eryitang-brand-hero .eryitang-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.eryitang-brand-hero__copy {
+  max-width: 630px;
+  padding-block: 92px;
+}
+
+.eryitang-brand-breadcrumb {
+  margin: 0 0 42px;
+  color: var(--brand-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.eryitang-brand-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.eryitang-brand-breadcrumb span {
+  margin-inline: 10px;
+  color: var(--brand-red);
+}
+
+.eryitang-brand-hero h1 {
+  margin: 18px 0 20px;
+  font: 400 clamp(2.75rem, 5vw, 4.5rem)/1.25 var(--brand-serif);
+  letter-spacing: 0.12em;
+}
+
+.eryitang-brand-hero__copy > p:last-child {
+  max-width: 560px;
+  margin: 0;
+  color: var(--brand-muted);
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.eryitang-brand-hero__index {
+  position: absolute;
+  right: max(40px, calc((100vw - var(--eryitang-wide)) / 2));
+  bottom: 52px;
+  z-index: 1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font: 400 0.78rem/1 var(--brand-serif);
+  letter-spacing: 0.22em;
+}
+
+.eryitang-brand-story__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(70px, 8vw, 120px);
+  align-items: start;
+}
+
+.eryitang-brand-story__statement {
+  position: sticky;
+  top: 118px;
+}
+
+.eryitang-brand-story blockquote {
+  margin: 26px 0 34px;
+  font: 400 clamp(2rem, 3.5vw, 3.2rem)/1.55 var(--brand-serif);
+  letter-spacing: 0.06em;
+}
+
+.eryitang-brand-story blockquote em {
+  color: var(--brand-red);
+  font-style: normal;
+}
+
+.eryitang-brand-image--story {
+  min-height: 360px;
+}
+
+.eryitang-brand-image,
+.eryitang-brand-heritage__visual {
+  overflow: hidden;
+}
+
+.eryitang-brand-image img,
+.eryitang-brand-heritage__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eryitang-brand-story__copy > p {
+  margin: 0 0 24px;
+  color: var(--brand-muted);
+  line-height: 2.15;
+}
+
+.eryitang-brand-dropcap::first-letter {
+  float: left;
+  margin: 12px 13px 0 0;
+  color: var(--brand-red);
+  font: 400 4.1rem/0.72 var(--brand-serif);
+}
+
+.eryitang-brand-image--space {
+  min-height: 430px;
+  margin: 48px 0;
+}
+
+.eryitang-brand-heritage {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 600px;
+}
+
+.eryitang-brand-heritage__visual {
+  min-height: 600px;
+}
+
+.eryitang-brand-heritage__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px max(50px, calc((100vw - var(--eryitang-wide)) / 2));
+  padding-left: clamp(54px, 7vw, 120px);
+  background: var(--brand-red-deep);
+  color: #fff;
+}
+
+.eryitang-brand-heritage__content .eryitang-brand-kicker {
+  color: #d9b598;
+}
+
+.eryitang-brand-heritage__content h2 {
+  margin: 24px 0;
+  font: 400 clamp(2.25rem, 4vw, 3.6rem)/1.45 var(--brand-serif);
+  letter-spacing: 0.06em;
+}
+
+.eryitang-brand-heritage__content > p:not(.eryitang-brand-kicker) {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 2;
+}
+
+.eryitang-brand-heritage__marks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.eryitang-brand-heritage__marks div {
+  padding: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.eryitang-brand-heritage__marks div:last-child {
+  border-right: 0;
+}
+
+.eryitang-brand-heritage__marks strong,
+.eryitang-brand-heritage__marks span {
+  display: block;
+}
+
+.eryitang-brand-heritage__marks strong {
+  margin-bottom: 6px;
+  font: 400 1.35rem/1.2 var(--brand-serif);
+}
+
+.eryitang-brand-heritage__marks span {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.75rem;
+}
+
+.eryitang-brand-credentials {
+  background: var(--brand-paper);
+}
+
+.eryitang-brand-credential-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.eryitang-brand-credential-card {
+  min-width: 0;
+  margin: 0;
+  padding: 13px 13px 22px;
+  border: 1px solid var(--brand-line);
+  background: rgba(251, 248, 241, 0.72);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+
+.eryitang-brand-credential-card:hover {
+  z-index: 2;
+  background: var(--brand-paper-light);
+  box-shadow: 0 22px 54px rgba(56, 40, 24, 0.12);
+  transform: translateY(-8px);
+}
+
+.eryitang-brand-credential-image {
+  position: relative;
+  display: flex;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.eryitang-brand-credential-image::before {
+  position: absolute;
+  inset: 15px;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  pointer-events: none;
+  content: "";
+}
+
+.eryitang-brand-credential-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.eryitang-brand-credential-image--certificate {
+  color: #5f5140;
+  background:
+    linear-gradient(135deg, transparent 49.5%, rgba(126, 99, 61, 0.08) 50%, transparent 50.5%),
+    #d7cbb6;
+}
+
+.eryitang-brand-credential-image--pennant {
+  color: #f0d9b9;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(255, 223, 172, 0.12) 50%, transparent 51%),
+    var(--brand-red-deep);
+}
+
+.eryitang-brand-credential-placeholder {
+  position: absolute;
+  inset: 0;
+}
+
+.eryitang-brand-credential-placeholder span {
+  position: absolute;
+  bottom: 11px;
+  left: 14px;
+  color: currentColor;
+  opacity: 0.64;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.eryitang-brand-credential-placeholder strong {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  font: 400 clamp(1.1rem, 1.7vw, 1.65rem)/1.7 var(--brand-serif);
+  letter-spacing: 0.12em;
+  transform: translate(-50%, -50%);
+}
+
+.eryitang-brand-credential-card figcaption {
+  padding: 18px 5px 0;
+}
+
+.eryitang-brand-credential-card h3 {
+  margin: 0;
+  font: 400 1rem/1.55 var(--brand-serif);
+}
+
+.eryitang-brand-credential-card figcaption p {
+  margin: 7px 0 0;
+  color: var(--brand-muted);
+  font-size: 0.7rem;
+  line-height: 1.7;
+}
+
+.eryitang-brand-values {
+  background: var(--brand-paper-light) url("../images/brand-v2/米色-仙鹤.png") center / cover no-repeat;
+}
+
+.eryitang-brand-heritage {
+  background: #7d2924 url("../images/brand-v2/红色-祥云2.png") center / cover no-repeat;
+}
+
+.eryitang-brand-credentials {
+  background: #f6f2e9 url("../images/brand-v2/纯色-浅色-背景.jpg") center / cover no-repeat;
+}
+
+.eryitang-brand-future {
+  background: #ecebe7 url("../images/brand-v2/灰色-山脉.png") center / cover no-repeat;
+}
+
+.eryitang-brand-future__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border: 1px solid var(--brand-line);
+}
+
+.eryitang-brand-future__grid .eryitang-brand-value {
+  min-height: 240px;
+}
+
+.eryitang-brand-values__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--brand-line);
+}
+
+.eryitang-brand-value {
+  min-height: 260px;
+  padding: 34px;
+  border-right: 1px solid var(--brand-line);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.eryitang-brand-value:last-child {
+  border-right: 0;
+}
+
+.eryitang-brand-value:hover {
+  background: #fff;
+  transform: translateY(-6px);
+}
+
+.eryitang-brand-value > span {
+  color: var(--brand-red);
+  font: 400 0.75rem/1 var(--brand-serif);
+  letter-spacing: 0.15em;
+}
+
+.eryitang-brand-value h3 {
+  margin: 56px 0 16px;
+  font: 400 1.4rem/1.4 var(--brand-serif);
+}
+
+.eryitang-brand-value p {
+  margin: 0;
+  color: var(--brand-muted);
+  font-size: 0.86rem;
+  line-height: 1.9;
+}
+
+.motion-ready .eryitang-brand-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.motion-ready .eryitang-brand-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1080px) {
+  .eryitang-brand-credential-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .eryitang-brand-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eryitang-brand-value:nth-child(2) {
+    border-right: 0;
+  }
+
+  .eryitang-brand-value:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--brand-line);
+  }
+}
+
+@media (max-width: 820px) {
+  .eryitang-brand-section-head,
+  .eryitang-brand-story__layout {
+    display: block;
+  }
+
+  .eryitang-brand-section-head > p {
+    margin-top: 24px;
+  }
+
+  .eryitang-brand-story__statement {
+    position: static;
+    margin-bottom: 56px;
+  }
+
+  .eryitang-brand-heritage {
+    grid-template-columns: 1fr;
+  }
+
+  .eryitang-brand-heritage__visual {
+    min-height: 480px;
+  }
+
+  .eryitang-brand-heritage__content {
+    padding: 72px max(20px, calc((100vw - 720px) / 2));
+  }
+}
+
+@media (max-width: 620px) {
+	.eryitang-brand-future__grid {
+	  grid-template-columns: 1fr;
+	}
+
+	.eryitang-brand-future__grid .eryitang-brand-value {
+	  min-height: 0;
+	  border-right: 0;
+	  border-bottom: 1px solid var(--brand-line);
+	}
+
+  .eryitang-brand-section {
+    padding-block: 72px;
+  }
+
+  .eryitang-brand-hero {
+    min-height: 560px;
+    background:
+      linear-gradient(180deg, rgba(244, 239, 229, 0.98) 0 68%, rgba(244, 239, 229, 0.5)),
+      linear-gradient(135deg, #8a8b7d, #62675d);
+  }
+
+  .eryitang-brand-hero::after {
+    right: -24px;
+    bottom: -30px;
+    font-size: 6rem;
+  }
+
+  .eryitang-brand-hero__copy {
+    padding-block: 78px 130px;
+  }
+
+  .eryitang-brand-breadcrumb {
+    margin-bottom: 34px;
+  }
+
+  .eryitang-brand-hero h1 {
+    font-size: clamp(2.65rem, 13vw, 3.45rem);
+  }
+
+  .eryitang-brand-hero__copy > p:last-child {
+    font-size: 0.92rem;
+  }
+
+  .eryitang-brand-hero__index {
+    right: 20px;
+    bottom: 32px;
+  }
+
+  .eryitang-brand-story blockquote {
+    font-size: 1.9rem;
+  }
+
+  .eryitang-brand-image--story {
+    min-height: 300px;
+  }
+
+  .eryitang-brand-image--space {
+    min-height: 340px;
+    margin-block: 36px;
+  }
+
+  .eryitang-brand-heritage__visual {
+    min-height: 360px;
+  }
+
+  .eryitang-brand-heritage__content {
+    padding: 64px 20px;
+  }
+
+  .eryitang-brand-heritage__marks {
+    grid-template-columns: 1fr;
+  }
+
+  .eryitang-brand-heritage__marks div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .eryitang-brand-heritage__marks div:last-child {
+    border-bottom: 0;
+  }
+
+  .eryitang-brand-credential-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .eryitang-brand-credential-card {
+    padding: 9px 9px 17px;
+  }
+
+  .eryitang-brand-credential-placeholder strong {
+    font-size: 1rem;
+  }
+
+  .eryitang-brand-values__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eryitang-brand-value,
+  .eryitang-brand-value:nth-child(2),
+  .eryitang-brand-value:last-child {
+    min-height: 220px;
+    border-right: 0;
+    border-bottom: 1px solid var(--brand-line);
+  }
+
+  .eryitang-brand-value:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eryitang-brand *,
+  .eryitang-brand *::before,
+  .eryitang-brand *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .motion-ready .eryitang-brand-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

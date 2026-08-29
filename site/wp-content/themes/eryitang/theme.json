@@ -1,0 +1,164 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "760px",
+      "wideSize": "1240px"
+    },
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        {
+          "slug": "paper",
+          "name": "宣纸米白",
+          "color": "#F4EFE5"
+        },
+        {
+          "slug": "paper-light",
+          "name": "浅纸色",
+          "color": "#FBF8F1"
+        },
+        {
+          "slug": "ink",
+          "name": "墨色",
+          "color": "#211E19"
+        },
+        {
+          "slug": "cinnabar",
+          "name": "朱砂红",
+          "color": "#872A24"
+        },
+        {
+          "slug": "cinnabar-deep",
+          "name": "深朱砂",
+          "color": "#63201C"
+        },
+        {
+          "slug": "moss",
+          "name": "苔绿色",
+          "color": "#666B5D"
+        },
+        {
+          "slug": "line",
+          "name": "纸面分隔线",
+          "color": "rgba(74, 61, 44, 0.18)"
+        }
+      ]
+    },
+    "spacing": {
+      "units": [
+        "px",
+        "rem",
+        "vw",
+        "%"
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFamily": "\"Source Han Serif SC\", \"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+          "name": "尔意堂宋体",
+          "slug": "display"
+        },
+        {
+          "fontFamily": "\"Source Han Sans SC\", \"Noto Sans SC\", \"Microsoft YaHei\", \"PingFang SC\", sans-serif",
+          "name": "尔意堂黑体",
+          "slug": "body"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "name": "小号",
+          "size": "0.875rem"
+        },
+        {
+          "slug": "medium",
+          "name": "正文",
+          "size": "1rem"
+        },
+        {
+          "slug": "large",
+          "name": "大号",
+          "size": "clamp(1.5rem, 2.6vw, 2.25rem)"
+        },
+        {
+          "slug": "x-large",
+          "name": "标题",
+          "size": "clamp(2.25rem, 5vw, 4.5rem)"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var:preset|color|paper-light",
+      "text": "var:preset|color|ink"
+    },
+    "spacing": {
+      "blockGap": "1.5rem"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|display",
+      "fontSize": "var:preset|font-size|medium",
+      "lineHeight": "1.8"
+    },
+    "elements": {
+      "button": {
+        "border": {
+          "radius": "0"
+        },
+        "color": {
+          "background": "var:preset|color|cinnabar",
+          "text": "#FFFFFF"
+        },
+        "typography": {
+          "fontSize": "0.875rem"
+        }
+      },
+      "heading": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|display",
+          "fontWeight": "500",
+          "lineHeight": "1.35"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var:preset|color|cinnabar-deep"
+        }
+      }
+    }
+  },
+  "customTemplates": [
+    {
+      "name": "page-brand",
+      "title": "品牌介绍页",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "page-contact",
+      "title": "联系我们页",
+      "postTypes": [
+        "page"
+      ]
+    }
+  ],
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "整站顶部",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "整站底部",
+      "area": "footer"
+    }
+  ]
+}
