@@ -295,17 +295,6 @@ function eryitang_category_filter_shortcode() {
 add_shortcode( 'eryitang_category_filter', 'eryitang_category_filter_shortcode' );
 
 /**
- * 获取文章的主要分类。
- *
- * @param int $post_id 文章ID。
- * @return WP_Term|null
- */
-function eryitang_get_primary_category( $post_id ) {
-	$categories = get_the_category( $post_id );
-	return $categories ? $categories[0] : null;
-}
-
-/**
  * 输出重点推荐列表。
  *
  * @return string
@@ -1018,8 +1007,8 @@ function eryitang_full_footer_shortcode() {
 	$year        = wp_date( 'Y' );
 
 	$output  = '<div class="eryitang-footer__grid"><div class="eryitang-footer__brand">' . do_shortcode( '[eryitang_logo variant="footer"]' ) . '<p>' . esc_html( $statement ) . '</p></div>';
-	$output .= '<nav aria-label="页脚快速导航"><h2>快速导航</h2><a href="' . esc_url( home_url( '/' ) ) . '">首页</a><a href="' . esc_url( home_url( '/brand/' ) ) . '">品牌介绍</a><a href="' . esc_url( home_url( '/category/news/' ) ) . '">医馆资讯</a><a href="' . esc_url( home_url( '/contact/' ) ) . '">联系我们</a></nav>';
-	$output .= '<nav aria-label="页脚内容分类"><h2>内容分类</h2><a href="' . esc_url( home_url( '/category/therapies/' ) ) . '">特色疗法</a><a href="' . esc_url( home_url( '/category/conditions/' ) ) . '">调理方向</a><a href="' . esc_url( home_url( '/category/tea/' ) ) . '">养生茶品</a><a href="' . esc_url( home_url( '/category/cases/' ) ) . '">案例故事</a></nav>';
+	$output .= '<nav aria-label="页脚快速导航"><h2>快速导航</h2><a href="' . esc_url( home_url( '/' ) ) . '">首页</a><a href="' . esc_url( home_url( '/brand/' ) ) . '">品牌介绍</a><a href="' . esc_url( eryitang_category_url( 'news' ) ) . '">医馆资讯</a><a href="' . esc_url( home_url( '/contact/' ) ) . '">联系我们</a></nav>';
+	$output .= '<nav aria-label="页脚内容分类"><h2>内容分类</h2><a href="' . esc_url( eryitang_category_url( 'therapies' ) ) . '">特色疗法</a><a href="' . esc_url( eryitang_category_url( 'conditions' ) ) . '">调理方向</a><a href="' . esc_url( eryitang_category_url( 'tea' ) ) . '">养生茶品</a><a href="' . esc_url( eryitang_category_url( 'cases' ) ) . '">案例故事</a></nav>';
 	$output .= '<div class="eryitang-footer__contact"><h2>联系我们</h2><p>' . nl2br( esc_html( $address ) ) . '</p><p>营业时间：' . esc_html( $hours ) . '</p><p>预约咨询：' . esc_html( $phone ) . '</p><img src="' . esc_url( $qr_url ) . '" alt="尔意堂医馆微信二维码" loading="lazy"></div></div>';
 	$output .= '<div class="eryitang-footer__legal"><span>Copyright © ' . esc_html( $year ) . ' 尔意堂中医馆</span>' . eryitang_footer_records_html() . '</div>';
 	return $output;
@@ -1041,11 +1030,11 @@ function eryitang_v2_header_shortcode() {
 	$items        = array(
 		'home'        => array( home_url( '/' ), '首页' ),
 		'brand'       => array( home_url( '/brand/' ), '品牌介绍' ),
-		'therapies'   => array( home_url( '/category/therapies/' ), '特色疗法' ),
-		'conditions'  => array( home_url( '/category/conditions/' ), '调理方向' ),
-		'tea'         => array( home_url( '/category/tea/' ), '养生茶品' ),
-		'cases'       => array( home_url( '/category/cases/' ), '案例故事' ),
-		'news'        => array( home_url( '/category/news/' ), '医馆资讯' ),
+		'therapies'   => array( eryitang_category_url( 'therapies' ), '特色疗法' ),
+		'conditions'  => array( eryitang_category_url( 'conditions' ), '调理方向' ),
+		'tea'         => array( eryitang_category_url( 'tea' ), '养生茶品' ),
+		'cases'       => array( eryitang_category_url( 'cases' ), '案例故事' ),
+		'news'        => array( eryitang_category_url( 'news' ), '医馆资讯' ),
 		'contact'     => array( home_url( '/contact/' ), '联系我们' ),
 	);
 	$active = 'home';
@@ -1088,8 +1077,8 @@ function eryitang_v2_footer_shortcode() {
 	$ad_html   = $ad ? '<div class="shared-footer-ad">' . $ad . '</div>' : '';
 	return '<footer class="site-footer" id="contact">' . $ad_html
 		. '<div class="container footer-main"><div class="footer-brand"><div><a class="brand" href="' . esc_url( home_url( '/' ) ) . '" aria-label="尔意堂首页">' . eryitang_responsive_image_html( $logo, eryitang_fixed_text( 'footer_logo_alt', '尔意堂中医馆' ), array( 'class' => 'footer-logo', 'width' => 480, 'height' => 267 ) ) . '</a></div><p>' . esc_html( $statement ) . '</p></div>'
-		. '<div class="footer-column"><h3>快速导航</h3><div class="footer-links"><a href="' . esc_url( home_url( '/' ) ) . '">首页</a><a href="' . esc_url( home_url( '/brand/' ) ) . '">品牌介绍</a><a href="' . esc_url( home_url( '/#doctors' ) ) . '">医师团队</a><a href="' . esc_url( home_url( '/category/news/' ) ) . '">医馆资讯</a></div></div>'
-		. '<div class="footer-column"><h3>内容分类</h3><div class="footer-links"><a href="' . esc_url( home_url( '/category/therapies/' ) ) . '">特色疗法</a><a href="' . esc_url( home_url( '/category/conditions/' ) ) . '">调理方向</a><a href="' . esc_url( home_url( '/category/tea/' ) ) . '">养生茶品</a><a href="' . esc_url( home_url( '/category/cases/' ) ) . '">案例故事</a></div></div>'
+		. '<div class="footer-column"><h3>快速导航</h3><div class="footer-links"><a href="' . esc_url( home_url( '/' ) ) . '">首页</a><a href="' . esc_url( home_url( '/brand/' ) ) . '">品牌介绍</a><a href="' . esc_url( home_url( '/#doctors' ) ) . '">医师团队</a><a href="' . esc_url( eryitang_category_url( 'news' ) ) . '">医馆资讯</a></div></div>'
+		. '<div class="footer-column"><h3>内容分类</h3><div class="footer-links"><a href="' . esc_url( eryitang_category_url( 'therapies' ) ) . '">特色疗法</a><a href="' . esc_url( eryitang_category_url( 'conditions' ) ) . '">调理方向</a><a href="' . esc_url( eryitang_category_url( 'tea' ) ) . '">养生茶品</a><a href="' . esc_url( eryitang_category_url( 'cases' ) ) . '">案例故事</a></div></div>'
 		. '<div class="footer-column"><h3>联系我们</h3><div class="footer-contact-copy"><div>' . nl2br( esc_html( $address ) ) . '</div><div>营业时间：' . esc_html( preg_replace( '/^每日\s*/u', '', $hours ) ) . '</div><div>预约咨询：' . esc_html( preg_replace( '/\s+/', '', $phone ) ) . '</div></div><div class="qr-placeholder"><img src="' . esc_url( $qr ) . '" alt="尔意堂官方微信二维码" loading="lazy"></div></div></div>'
 		. '<div class="container footer-bottom"><div>Copyright © ' . esc_html( wp_date( 'Y' ) ) . ' 尔意堂中医馆</div>' . eryitang_footer_records_html() . '</div></footer>';
 }

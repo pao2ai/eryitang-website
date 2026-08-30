@@ -251,9 +251,8 @@ function eryitang_seo_breadcrumb_schema() {
 		}
 		$items[] = array( '@type' => 'ListItem', 'position' => $position, 'name' => $term->name, 'item' => eryitang_seo_url() );
 	} elseif ( is_singular( 'post' ) ) {
-		$categories = get_the_category( get_queried_object_id() );
-		if ( $categories ) {
-			$category = $categories[0];
+		$category = function_exists( 'eryitang_get_primary_category' ) ? eryitang_get_primary_category( get_queried_object_id() ) : null;
+		if ( $category ) {
 			$ancestor_ids = array_reverse( get_ancestors( $category->term_id, 'category', 'taxonomy' ) );
 			$ancestor_ids[] = $category->term_id;
 			foreach ( array_unique( $ancestor_ids ) as $category_id ) {

@@ -91,9 +91,26 @@ function eryitang_render_post_meta_box( $post ) {
 	$home_order = absint( get_post_meta( $post->ID, '_eryitang_home_order', true ) );
 	$related    = get_post_meta( $post->ID, '_eryitang_related_posts', true );
 	$related    = is_array( $related ) ? implode( ',', array_map( 'absint', $related ) ) : '';
+	$primary    = function_exists( 'eryitang_get_primary_category' ) ? eryitang_get_primary_category( $post->ID ) : null;
+	$top_level  = get_terms(
+		array(
+			'taxonomy'   => 'category',
+			'parent'     => 0,
+			'hide_empty' => false,
+		)
+	);
 
 	echo '<p><label><input type="checkbox" name="_eryitang_featured" value="1" ' . checked( $is_featured, true, false ) . '> 设为重点推荐</label></p>';
 	echo '<p><label><input type="checkbox" name="_eryitang_home_featured" value="1" ' . checked( $is_home, true, false ) . '> 在首页资讯中展示</label></p>';
+	echo '<p><label for="_eryitang_primary_category"><strong>主分类（文章网址）</strong></label></p>';
+	echo '<p><select class="widefat" id="_eryitang_primary_category" name="_eryitang_primary_category"><option value="0">自动使用已选一级分类</option>';
+	if ( ! is_wp_error( $top_level ) ) {
+		foreach ( $top_level as $term ) {
+			echo '<option value="' . absint( $term->term_id ) . '" ' . selected( $primary ? $primary->term_id : 0, $term->term_id, false ) . '>' . esc_html( $term->name ) . '</option>';
+		}
+	}
+	echo '</select></p>';
+	echo '<p class="description">决定文章网址中的一级目录。所选分类需同时在右侧“分类”中勾选；文章可继续勾选多个分类。</p>';
 	echo '<p><label for="_eryitang_home_order"><strong>首页顺序</strong></label></p>';
 	echo '<p><input class="widefat" type="number" min="0" id="_eryitang_home_order" name="_eryitang_home_order" value="' . esc_attr( $home_order ) . '"></p>';
 	echo '<p><label for="_eryitang_related_posts"><strong>相关文章ID</strong></label></p>';
@@ -226,6 +243,31 @@ function eryitang_save_post_meta( $post_id ) {
 	update_post_meta( $post_id, '_eryitang_featured', isset( $_POST['_eryitang_featured'] ) ? 1 : 0 );
 	update_post_meta( $post_id, '_eryitang_home_featured', isset( $_POST['_eryitang_home_featured'] ) ? 1 : 0 );
 	update_post_meta( $post_id, '_eryitang_home_order', isset( $_POST['_eryitang_home_order'] ) ? absint( $_POST['_eryitang_home_order'] ) : 0 );
+
+	$selected_primary = isset( $_POST['_eryitang_primary_category'] ) ? absint( $_POST['_eryitang_primary_category'] ) : 0;
+	$valid_primary    = false;
+	if ( $selected_primary ) {
+		$selected_term = get_term( $selected_primary, 'category' );
+		$assigned      = wp_get_post_terms( $post_id, 'category' );
+		if ( $selected_term instanceof WP_Term && 0 === (int) $selected_term->parent && ! is_wp_error( $assigned ) ) {
+			foreach ( $assigned as $assigned_term ) {
+				$top = function_exists( 'eryitang_top_level_category' ) ? eryitang_top_level_category( $assigned_term ) : null;
+				if ( $top && $top->term_id === $selected_term->term_id ) {
+					$valid_primary = true;
+					break;
+				}
+			}
+		}
+	}
+	if ( $valid_primary ) {
+		update_post_meta( $post_id, '_eryitang_primary_category', $selected_primary );
+	} else {
+		delete_post_meta( $post_id, '_eryitang_primary_category' );
+		$fallback_primary = function_exists( 'eryitang_get_primary_category' ) ? eryitang_get_primary_category( $post_id ) : null;
+		if ( $fallback_primary ) {
+			update_post_meta( $post_id, '_eryitang_primary_category', $fallback_primary->term_id );
+		}
+	}
 
 	$related_raw = isset( $_POST['_eryitang_related_posts'] ) ? sanitize_text_field( wp_unslash( $_POST['_eryitang_related_posts'] ) ) : '';
 	$related     = array_values(

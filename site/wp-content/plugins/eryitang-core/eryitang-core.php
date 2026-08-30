@@ -2,7 +2,7 @@
 /**
  * Plugin Name: 尔意堂网站功能
  * Description: 为尔意堂官网提供医师资料、资质荣誉、文章推荐字段和全站信息设置。
- * Version: 0.4.4
+ * Version: 0.5.0
  * Requires at least: 6.8
  * Requires PHP: 8.3
  * Author: 尔意堂官网项目组
@@ -15,12 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ERYITANG_CORE_VERSION', '0.4.4' );
+define( 'ERYITANG_CORE_VERSION', '0.5.0' );
 define( 'ERYITANG_CORE_PATH', plugin_dir_path( __FILE__ ) );
 
 require_once ERYITANG_CORE_PATH . 'inc/post-types.php';
 require_once ERYITANG_CORE_PATH . 'inc/meta-boxes.php';
 require_once ERYITANG_CORE_PATH . 'inc/settings.php';
+require_once ERYITANG_CORE_PATH . 'inc/permalinks.php';
 require_once ERYITANG_CORE_PATH . 'inc/fixed-content.php';
 require_once ERYITANG_CORE_PATH . 'inc/media-policy.php';
 require_once ERYITANG_CORE_PATH . 'inc/seo.php';
