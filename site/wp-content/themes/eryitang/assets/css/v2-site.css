@@ -3012,7 +3012,7 @@ html[data-article-category="news"] .page-article-list-v1 .subcategory-links[data
   border-bottom: 0;
   background:
     linear-gradient(to bottom, rgba(255,255,255,.08) 0%, rgba(247,250,248,.2) 70%, rgba(247,250,248,.86) 100%),
-    url("../images/article-detail-v2/article-bg-mountain.webp") center bottom / cover no-repeat;
+    url("../images/article-detail-v2/article-bg-mountain-warm-v2.webp") center bottom / cover no-repeat;
 }
 
 .page-article-detail-v1 .article-hero::after {

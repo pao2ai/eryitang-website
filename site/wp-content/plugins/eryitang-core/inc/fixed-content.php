@@ -159,6 +159,7 @@ function eryitang_fixed_content_schema() {
 					'background_brand_credentials' => $image( '品牌资质背景', 'assets/images/brand-v2/brand-bg-credentials.webp', 1920, 1080, 550 ),
 					'background_brand_values' => $image( '品牌诊疗原则背景', 'assets/images/brand-v2/brand-bg-principle.webp', 1920, 1080, 550 ),
 					'background_brand_future' => $image( '品牌未来方向背景', 'assets/images/brand-v2/brand-bg-future.webp', 1920, 1080, 550 ),
+					'background_article_detail' => $image( '文章详情页背景', 'assets/images/article-detail-v2/article-bg-mountain-warm-v2.webp', 1920, 820, 500 ),
 				) ),
 			),
 		),
@@ -465,6 +466,7 @@ function eryitang_fixed_background_styles() {
 		'background_brand_credentials' => '.page-brand-v1 .brand-credentials{background-image:linear-gradient(rgba(250,247,240,.36),rgba(250,247,240,.36)),url("%s")!important}',
 		'background_brand_values' => '.page-brand-v1 .brand-principle{background-image:linear-gradient(rgba(247,239,224,.46),rgba(247,239,224,.46)),url("%s")!important}',
 		'background_brand_future' => '.page-brand-v1 .brand-future{background-image:linear-gradient(rgba(244,242,237,.52),rgba(244,242,237,.52)),url("%s")!important}',
+		'background_article_detail' => '.page-article-detail-v1 .article-hero{background-image:linear-gradient(to bottom,rgba(255,255,255,.08) 0%%,rgba(247,250,248,.20) 70%%,rgba(247,250,248,.86) 100%%),url("%s")!important}',
 	);
 	$css = '';
 	foreach ( $rules as $key => $rule ) {

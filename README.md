@@ -15,7 +15,7 @@
 | MySQL | 8.0 |
 | Nginx | 1.30.4 |
 | 主题 | `eryitang` 0.1.0 |
-| 功能插件 | `eryitang-core` 0.5.0 |
+| 功能插件 | `eryitang-core` 0.5.1 |
 | 数据库表前缀 | `wp_` |
 | 固定链接 | 文章 `/%category%/%postname%/`；分类无 `/category/` 前缀 |
 
@@ -62,3 +62,5 @@ sudo -E bash scripts/verify-restored-site.sh
 5. 数据库迁移、核心升级、批量媒体替换等高风险操作必须建立服务器外备份并演练恢复。
 
 项目实现方法、问题复盘和同类项目 SOP 见 [docs/IMPLEMENTATION-RETROSPECTIVE.md](docs/IMPLEMENTATION-RETROSPECTIVE.md)。
+
+面向客户的账号、服务器、域名和 SSL 证书续费提醒，见 [Markdown 版本](docs/CLIENT-MAINTENANCE-CHECKLIST.md) 或 [Word 版本](docs/尔意堂官网维护清单.docx)。
